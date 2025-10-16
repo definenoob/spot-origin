@@ -10,186 +10,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0F172A;
-            color: #F8FAFC;
-        }
-
-        /* Enhanced animated gradient */
-        .animated-gradient {
-            background: linear-gradient(135deg, #6366F1, #8B5CF6, #EC4899, #F59E0B);
-            background-size: 400% 400%;
-            animation: gradientShift 20s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        /* Floating orbs for depth */
-        .gradient-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .orb-1 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, #6366F1 0%, transparent 70%);
-            top: -10%;
-            left: -10%;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #EC4899 0%, transparent 70%);
-            bottom: -10%;
-            right: -10%;
-            animation-delay: 7s;
-        }
-
-        .orb-3 {
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, #8B5CF6 0%, transparent 70%);
-            top: 40%;
-            right: 20%;
-            animation-delay: 14s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -30px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-
-        /* Text reveal animation */
-        .text-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: revealText 0.8s ease-out forwards;
-        }
-
-        .text-reveal-1 { animation-delay: 0.2s; }
-        .text-reveal-2 { animation-delay: 0.4s; }
-        .text-reveal-3 { animation-delay: 0.6s; }
-        .text-reveal-4 { animation-delay: 0.8s; }
-
-        @keyframes revealText {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Enhanced button styles */
-        .btn-primary {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(99, 102, 241, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-secondary {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.1) 50%);
-            background-size: 200% 100%;
-            background-position: left;
-            transition: all 0.4s ease;
-        }
-
-        .btn-secondary:hover {
-            background-position: right;
-        }
-
-        /* Badge pulse animation */
-        .badge-pulse {
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.9; }
-        }
-
-        /* Shimmer effect for headings */
-        .text-shimmer {
-            background: linear-gradient(90deg, #fff 0%, #fff 40%, #a5b4fc 50%, #fff 60%, #fff 100%);
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s linear infinite;
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        /* Decorative grid pattern */
-        .grid-pattern {
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
-        }
-
-        @keyframes gridMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 50px 50px; }
-        }
-        
-        /* Scroll-triggered animations */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .scroll-reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .modal-backdrop {
-            transition: opacity 0.3s ease-in-out;
-        }
-        
-        .modal-content {
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .drag-over {
-            border-color: #6366F1;
-            background-color: #1E293B;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: #F8FAFC; }
+        .animated-gradient { background: linear-gradient(135deg, #6366F1, #8B5CF6, #EC4899, #F59E0B); background-size: 400% 400%; animation: gradientShift 20s ease infinite; }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .gradient-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: float 20s ease-in-out infinite; }
+        .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #6366F1 0%, transparent 70%); top: -10%; left: -10%; animation-delay: 0s; }
+        .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, #EC4899 0%, transparent 70%); bottom: -10%; right: -10%; animation-delay: 7s; }
+        .orb-3 { width: 350px; height: 350px; background: radial-gradient(circle, #8B5CF6 0%, transparent 70%); top: 40%; right: 20%; animation-delay: 14s; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(30px, -30px) scale(1.1); } 66% { transform: translate(-20px, 20px) scale(0.9); } }
+        .text-reveal { opacity: 0; transform: translateY(30px); animation: revealText 0.8s ease-out forwards; }
+        .text-reveal-1 { animation-delay: 0.2s; } .text-reveal-2 { animation-delay: 0.4s; } .text-reveal-3 { animation-delay: 0.6s; } .text-reveal-4 { animation-delay: 0.8s; }
+        @keyframes revealText { to { opacity: 1; transform: translateY(0); } }
+        .btn-primary { position: relative; overflow: hidden; transition: all 0.3s ease; }
+        .btn-primary::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: rgba(99, 102, 241, 0.3); transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s; }
+        .btn-primary:hover::before { width: 300px; height: 300px; }
+        .btn-secondary { position: relative; overflow: hidden; background: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.1) 50%); background-size: 200% 100%; background-position: left; transition: all 0.4s ease; }
+        .btn-secondary:hover { background-position: right; }
+        .badge-pulse { animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.9; } }
+        .text-shimmer { background: linear-gradient(90deg, #fff 0%, #fff 40%, #a5b4fc 50%, #fff 60%, #fff 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        .grid-pattern { background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 50px 50px; animation: gridMove 20s linear infinite; }
+        @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
+        .scroll-reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .modal-backdrop { transition: opacity 0.3s ease-in-out; } .modal-content { transition: transform 0.3s ease-in-out; }
+        .drag-over { border-color: #6366F1; background-color: #1E293B; }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
@@ -204,191 +50,200 @@
     </header>
 
     <main>
-        <!-- CONTINUOUS GRADIENT WRAPPER -->
         <div class="animated-gradient relative">
-            <!-- Gradient Orbs for Depth -->
             <div class="gradient-orb orb-1"></div>
             <div class="gradient-orb orb-2"></div>
             <div class="gradient-orb orb-3"></div>
-            
-            <!-- Grid Pattern Overlay -->
             <div class="absolute inset-0 grid-pattern"></div>
-            
-            <!-- Fade to Black at Bottom -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 via-30% to-black/90 to-100%"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 via-30% to-slate-900 to-100%"></div>
         
-        <!-- HERO SECTION - UPGRADED -->
-        <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-            
-            <!-- Hero Content -->
-            <div class="relative z-10 text-center px-4 py-20 max-w-5xl mx-auto">
-                <!-- Main Heading -->
-                <h1 class="text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-6 text-reveal text-reveal-1 leading-tight">
-                    <span class="block mt-2">Let the Next Opportunity</span>
-                    <span class="text-shimmer">Find You</span>
-                </h1>
-                
-                <!-- Subheading -->
-                <p class="text-xl md:text-2xl lg:text-3xl text-slate-100 mb-8 max-w-3xl mx-auto font-light leading-relaxed text-reveal text-reveal-2">
-                    Meet companies through <span class="font-semibold text-white">intelligent agents</span>
-                </p>
-                
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white font-semibold px-6 py-3 rounded-full mb-12 text-reveal text-reveal-3 badge-pulse shadow-2xl">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
-                    </svg>
-                    <span>No public job board. Just smart matches.</span>
-                </div>
-                
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-5 justify-center items-center text-reveal text-reveal-4">
-                    <a href="#final-cta" class="btn-primary bg-white text-indigo-600 font-bold px-12 py-5 rounded-full text-lg shadow-2xl hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 relative z-10">
-                        <span class="relative z-10">Get Started Free</span>
-                    </a>
-                    <a href="#how-it-works" id="learn-more-btn" class="btn-secondary border-2 border-white/80 text-white font-bold px-12 py-5 rounded-full text-lg backdrop-blur-sm hover:border-white transform hover:scale-105 transition-all duration-300 shadow-lg">
-                        See How It Works
-                    </a>
-                </div>
-                
-                <!-- Trust Indicators -->
-                <div class="mt-16 flex flex-wrap justify-center gap-8 items-center text-slate-200 text-sm text-reveal text-reveal-4">
-                    <div class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                        <span>Privacy First</span>
+            <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+                <div class="relative z-10 text-center px-4 py-20 max-w-5xl mx-auto">
+                    <h1 class="text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-6 text-reveal text-reveal-1 leading-tight">
+                        <span class="block mt-2">Agents Are Looking <span class="text-shimmer">For You</span></span>
+                    </h1>
+                    <p class="text-xl md:text-2xl lg:text-3xl text-slate-100 mb-8 max-w-3xl mx-auto font-light leading-relaxed text-reveal text-reveal-2">
+                        Drop your details. We'll match you with companies <span class="font-semibold text-white">actually hiring.</span>
+                    </p>
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white font-semibold px-6 py-3 rounded-full mb-12 text-reveal text-reveal-3 badge-pulse shadow-2xl">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                        <span>No public job board. Just smart matches.</span>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                        <span>AI-Powered Matching</span>
+                    <div class="flex flex-col sm:flex-row gap-5 justify-center items-center text-reveal text-reveal-4">
+                        <a href="#final-cta" class="btn-primary bg-white text-indigo-600 font-bold px-12 py-5 rounded-full text-lg shadow-2xl hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 relative z-10">
+                            <span class="relative z-10">Get Started Free</span>
+                        </a>
+                        <a href="#how-it-works" id="learn-more-btn" class="btn-secondary border-2 border-white/80 text-white font-bold px-12 py-5 rounded-full text-lg backdrop-blur-sm hover:border-white transform hover:scale-105 transition-all duration-300 shadow-lg">
+                            See How It Works
+                        </a>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                        <span>Zero Spam</span>
+                    <div class="mt-16 flex flex-wrap justify-center gap-8 items-center text-slate-200 text-sm text-reveal text-reveal-4">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span>Privacy First</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span>AI-Powered Matching</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span>Zero Spam</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                </svg>
-            </div>
-        </section>
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                </div>
+            </section>
 
-        <!-- FINAL CTA SECTION -->
-        <section id="final-cta" class="py-20 sm:py-32 relative">
-            <div class="container mx-auto px-6">
-                <div class="scroll-reveal bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 sm:p-12 text-center max-w-3xl mx-auto">
+            <section class="py-20 sm:py-32 bg-slate-900/70 relative z-10">
+                <div class="container mx-auto px-6">
+                    <div class="scroll-reveal text-center max-w-3xl mx-auto">
+                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">Finally, A Job Search That Doesn't <span class="text-shimmer">Suck</span></h2>
+                        <p class="text-lg md:text-xl text-slate-400 mb-16">
+                            We fixed everything that makes you want to throw your laptop out the window.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="scroll-reveal text-center p-6">
+                            <div class="text-5xl mb-4">🕳️</div>
+                            <h4 class="text-xl font-bold mb-2">No More Application Black Holes</h4>
+                            <p class="text-slate-400">You know that thing where you spend 3 hours applying and never hear back? Dead. Agents only get paid when you get hired, so they actually respond.</p>
+                        </div>
+                        <div class="scroll-reveal text-center p-6">
+                            <div class="text-5xl mb-4">👻</div>
+                            <h4 class="text-xl font-bold mb-2">No Ghost Jobs</h4>
+                            <p class="text-slate-400">Every job is real because companies pay real money to post. No more "we're always accepting resumes" or jobs from 2019 still marked "urgent."</p>
+                        </div>
+                        <div class="scroll-reveal text-center p-6">
+                            <div class="text-5xl mb-4">🤖</div>
+                            <h4 class="text-xl font-bold mb-2">The Robots Work <span class="text-shimmer">FOR YOU</span> Now</h4>
+                            <p class="text-slate-400">Instead of getting rejected by ATS keyword scanners, you get AI agents finding jobs you didn't even know existed. Uno reverse card.</p>
+                        </div>
+                        <div class="scroll-reveal text-center p-6">
+                            <div class="text-5xl mb-4">🎭</div>
+                            <h4 class="text-xl font-bold mb-2">No More LinkedIn Theater</h4>
+                            <p class="text-slate-400">Delete the "I'm thrilled to announce my job search journey" post. Agents do the awkward networking so you can keep your dignity.</p>
+                        </div>
+                        <div class="scroll-reveal text-center p-6">
+                            <div class="text-5xl mb-4">💰</div>
+                            <h4 class="text-xl font-bold mb-2">You Get Leverage</h4>
+                            <p class="text-slate-400">When agents compete to place you, you get multiple offers. For once, YOU get to ghost the lowballers.</p>
+                        </div>
+                        <div class="scroll-reveal text-center p-6">
+                            <div class="text-5xl mb-4">📧</div>
+                            <h4 class="text-xl font-bold mb-2">Someone Else Sends the Follow-Ups</h4>
+                            <p class="text-slate-400">"Just circling back!" "Wanted to bump this!" "Any updates?" Let agents send the desperate emails while you play video games.</p>
+                        </div>
+                    </div>
+                    <div class="scroll-reveal mt-16 text-center">
+                        <div class="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/30 rounded-2xl p-8 max-w-2xl mx-auto">
+                            <h3 class="text-2xl font-bold mb-4">The Real Difference?</h3>
+                            <p class="text-lg text-slate-300">
+                                Traditional job sites make money from companies posting jobs—even fake ones. We make money when you <span class="text-white font-semibold">actually get hired</span>. 
+                            </p>
+                            <p class="text-lg text-slate-300 mt-4">
+                                That changes everything.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="how-it-works" class="py-20 sm:py-32 bg-slate-900 relative z-10">
+                <div class="container mx-auto px-6">
+                    <div class="scroll-reveal text-center max-w-3xl mx-auto">
+                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-500">
+                            Here's How This Actually Works
+                        </h2>
+                        <p class="text-lg md:text-xl text-slate-400 mb-16">
+                            Three groups. One marketplace. Zero BS.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="scroll-reveal bg-slate-800/50 border border-slate-700 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-indigo-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                                <h3 class="text-2xl font-bold">If You Need a Job</h3>
+                            </div>
+                            <p class="text-slate-400 mb-6">Stop begging the ATS gods for mercy. Upload your stuff once, and let agents fight over who gets to place you.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span class="text-slate-300">Drop your resume (we keep it private)</span></li>
+                                <li class="flex items-start"><span class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span class="text-slate-300">Agents hunt for your perfect match</span></li>
+                                <li class="flex items-start"><span class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span class="text-slate-300">Only talk to companies that actually want you</span></li>
+                            </ul>
+                        </div>
+                        <div class="scroll-reveal bg-purple-500/10 border border-purple-400 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300 ring-2 ring-purple-500/50 shadow-2xl shadow-purple-500/10">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-purple-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400"><path d="M18 5a2 2 0 0 0-2-2h-3.36a2 2 0 0 0-1.87 1.26L10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.36a2 2 0 0 0-1.26-1.87L16 14l1.26-1.87A2 2 0 0 0 18 10V5Z"/><path d="M12 9v4"/></svg></div>
+                                <h3 class="text-2xl font-bold">If You're an Agent</h3>
+                            </div>
+                            <p class="text-slate-400 mb-6">Stop cold DMing on LinkedIn like a weirdo. Get access to everyone, make matches, get paid. It's literally that simple.</p>
+                            <div class="bg-slate-700/50 rounded-lg p-3 mb-6">
+                                <div class="text-sm text-slate-300 mb-2">💰 <span class="font-bold text-white">$5,000</span> per placement you make</div>
+                                <div class="text-sm text-slate-300 mb-2">🔗 <span class="font-bold text-white">$750</span> just for referring someone who gets hired</div>
+                            </div>
+                            <ul class="space-y-3">
+                                 <li class="flex items-start"><span class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span class="text-slate-300">See every candidate & every job</span></li>
+                                 <li class="flex items-start"><span class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span class="text-slate-300">AI helps you match at scale</span></li>
+                                 <li class="flex items-start"><span class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span class="text-slate-300">Cash hits when placement sticks</span></li>
+                            </ul>
+                        </div>
+                        <div class="scroll-reveal bg-slate-800/50 border border-slate-700 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-pink-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-pink-400"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
+                                <h3 class="text-2xl font-bold">If You're Hiring</h3>
+                            </div>
+                            <p class="text-slate-400 mb-6">Stop drowning in garbage resumes from people who spray-and-pray. Agents only send you people who actually fit.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span class="text-slate-300">Post your job (we keep it private)</span></li>
+                                <li class="flex items-start"><span class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span class="text-slate-300">Agents compete to bring you the best</span></li>
+                                <li class="flex items-start"><span class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span class="text-slate-300">Pay only when you hire ($5k flat)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <section id="final-cta" class="py-20 sm:py-32 bg-slate-900">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="scroll-reveal bg-slate-800/50 border border-slate-700 rounded-2xl p-8 sm:p-12 text-center max-w-3xl mx-auto">
                     
-                    <div id="full-form-container">
-                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-2">Join as a Candidate</h2>
-                        <p class="text-lg text-slate-200 mb-8">Upload your resume to get started. It will only be visible to verified agents.</p>
-                        <form action="https://formspree.io/f/xblzqllb" method="POST" enctype="multipart/form-data" class="space-y-4 text-left">
-                            <input type="hidden" name="_autoresponse" value="Your SpotOrigin Application has been received!">
-                            <input type="hidden" id="referrer-desktop" name="referrer_email">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label for="name-desktop" class="block text-sm font-medium text-slate-200 mb-1">Full Name</label>
-                                    <input type="text" name="name" id="name-desktop" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
-                                </div>
-                                <div>
-                                    <label for="email-desktop" class="block text-sm font-medium text-slate-200 mb-1">Email Address</label>
-                                    <input type="email" name="email" id="email-desktop" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
-                                </div>
-                            </div>
-                            <div>
-                                <label for="experience-years" class="block text-sm font-medium text-slate-200 mb-1">Years of Professional Experience</label>
-                                <select id="experience-years" name="experience_years" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white appearance-none bg-no-repeat bg-right pr-8" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%2394a3b8%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e'); background-position: right 0.5rem center; background-size: 1.5em 1.5em;">
-                                    <option value="">Select a range</option>
-                                    <option value="0-2 years">0-2 years</option>
-                                    <option value="3-5 years">3-5 years</option>
-                                    <option value="6-10 years">6-10 years</option>
-                                    <option value="11-15 years">11-15 years</option>
-                                    <option value="15+ years">15+ years</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="location-input" class="block text-sm font-medium text-slate-200 mb-1">Desired Locations (e.g., Remote, New York, London)</label>
-                                <input type="text" id="location-input" placeholder="Type a location and press Enter..." class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
-                                <div id="locations-container" class="flex flex-wrap gap-2 mt-3"></div>
-                                <input type="hidden" name="desired_locations" id="desired-locations-hidden">
-                            </div>
-                            <div>
-                                <label for="last-compensation" class="block text-sm font-medium text-slate-200 mb-1">Last Compensation (Optional)</label>
-                                <input type="text" name="last_compensation" id="last-compensation" placeholder="e.g., $120,000/year or $75/hour" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-200 mb-2">Resume</label>
-                                <div id="resume-dropzone" class="relative flex justify-center rounded-lg border-2 border-dashed border-slate-600 px-6 py-10">
-                                    <div class="text-center">
-                                        <svg class="mx-auto h-12 w-12 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
-                                        <div id="file-name-display" class="mt-4 flex text-sm leading-6 text-slate-200">
-                                            <label for="resume-desktop" class="relative cursor-pointer rounded-md font-semibold text-slate-50 underline"><span>Upload a file</span><input id="resume-desktop" name="resume" type="file" required class="sr-only"></label>
-                                            <p class="pl-1">or drag and drop</p>
-                                        </div>
-                                        <p class="text-xs leading-5 text-slate-300">PDF, DOC, DOCX up to 10MB</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex items-start pt-2">
-                                <div class="flex items-center h-5">
-                                    <input id="terms-desktop" name="terms-candidate" type="checkbox" required class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                    <label for="terms-desktop" class="text-slate-300">I agree to the <a href="terms.html" target="_blank" class="font-medium text-slate-100 underline">Terms of Service</a> and <a href="privacy.html" target="_blank" class="font-medium text-slate-100 underline">Privacy Policy</a>.</label>
-                                </div>
-                            </div>
-                            <button type="submit" class="w-full bg-white text-indigo-600 font-bold py-4 px-6 rounded-full !mt-8 text-lg hover:bg-slate-100 hover:scale-105 transition-all duration-300">Submit Application</button>
-                            <div class="text-center mt-4">
-                                <a href="#" id="show-simple-form" class="text-sm text-slate-300 hover:text-white underline">Just want to leave your email?</a>
-                            </div>
-                        </form>
-                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-2">Get Started</h2>
+                    <p class="text-lg text-slate-300 mb-8">Enter your email below. We'll send you a private link to complete your profile.</p>
 
-                    <div id="simple-form-container">
-                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-2">Get Started Quickly</h2>
-                        <p class="text-lg text-slate-200 mb-8">Enter your email and we'll send you a link to complete your profile.</p>
-                        <form action="https://formspree.io/f/xanpaeoo" method="POST" class="space-y-4 text-left">
-                            <input type="hidden" name="_autoresponse" value="Complete your SpotOrigin Profile!">
-                            <input type="hidden" id="referrer-mobile" name="referrer_email">
-                             <div>
-                                <label for="email-mobile" class="block text-sm font-medium text-slate-200 mb-1">Email Address</label>
-                                <input type="email" name="email" id="email-mobile" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
+                    <form action="https://formspree.io/f/xanpaeoo" method="POST" class="space-y-4 text-left max-w-md mx-auto">
+                        <input type="hidden" name="_autoresponse" value="Complete your SpotOrigin Profile!">
+                        <input type="hidden" id="referrer-main" name="referrer_email">
+                         <div>
+                            <label for="email-main" class="sr-only">Email Address</label>
+                            <input type="email" name="email" id="email-main" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-slate-400 text-lg">
+                        </div>
+                        <div class="flex items-start pt-2">
+                            <div class="flex items-center h-5">
+                                <input id="terms-main" name="terms-candidate" type="checkbox" required class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded">
                             </div>
-                            <div class="flex items-start pt-2">
-                                <div class="flex items-center h-5">
-                                    <input id="terms-mobile" name="terms-candidate" type="checkbox" required class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                    <label for="terms-mobile" class="text-slate-300">I agree to the <a href="terms.html" target="_blank" class="font-medium text-slate-100 underline">Terms of Service</a> and <a href="privacy.html" target="_blank" class="font-medium text-slate-100 underline">Privacy Policy</a>.</label>
-                                </div>
+                            <div class="ml-3 text-sm">
+                                <label for="terms-main" class="text-slate-300">I agree to the <a href="terms.html" target="_blank" class="font-medium text-slate-100 underline">Terms of Service</a> and <a href="privacy.html" target="_blank" class="font-medium text-slate-100 underline">Privacy Policy</a>.</label>
                             </div>
-                            <button type="submit" class="w-full bg-white text-indigo-600 font-bold py-4 px-6 rounded-full !mt-8 text-lg hover:bg-slate-100 hover:scale-105 transition-all duration-300">Send Me The Link</button>
-                            <div class="text-center mt-4">
-                                <a href="#" id="show-full-form" class="text-sm text-slate-300 hover:text-white underline">Want to apply with a resume now?</a>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                        <button type="submit" class="w-full bg-white text-indigo-600 font-bold py-4 px-6 rounded-full !mt-6 text-lg hover:bg-slate-100 hover:scale-105 transition-all duration-300">Get My Link</button>
+                    </form>
                 </div>
                  
                 <div class="scroll-reveal mt-16 text-center">
                     <p class="text-lg md:text-xl text-slate-200 mb-8">Are you a recruiter or a hiring company?</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                    <div class="scroll-reveal bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 text-center flex flex-col items-center hover:bg-white/20 transition-colors duration-300 transform hover:scale-105">
+                    <div class="scroll-reveal bg-slate-800/50 border border-slate-700 rounded-2xl p-8 text-center flex flex-col items-center hover:bg-slate-700/70 transition-colors duration-300 transform hover:scale-105">
                          <div class="text-5xl mb-4">🤝</div>
                         <h3 class="text-2xl font-bold mb-2">I'm an Agent</h3>
                         <p class="text-slate-300 mb-6 flex-grow">Start matching and earning commission.</p>
                         <button data-modal-target="agent-modal" class="w-full bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition-colors duration-300">Become an Agent</button>
                     </div>
-                    <div class="scroll-reveal bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 text-center flex flex-col items-center hover:bg-white/20 transition-colors duration-300 transform hover:scale-105">
+                    <div class="scroll-reveal bg-slate-800/50 border border-slate-700 rounded-2xl p-8 text-center flex flex-col items-center hover:bg-slate-700/70 transition-colors duration-300 transform hover:scale-105">
                          <div class="text-5xl mb-4">🏢</div>
                         <h3 class="text-2xl font-bold mb-2">I'm a Company</h3>
                         <p class="text-slate-300 mb-6 flex-grow">Get matched with top-tier talent.</p>
@@ -397,108 +252,8 @@
                 </div>
             </div>
         </section>
-        </div>
-        <!-- END CONTINUOUS GRADIENT WRAPPER -->
-
-        <!-- HOW IT WORKS SECTION -->
-        <section id="how-it-works" class="py-20 sm:py-32 bg-slate-900">
-            <div class="container mx-auto px-6">
-                <div class="scroll-reveal text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-500">
-                        A New Kind of Marketplace
-                    </h2>
-                    <p class="text-lg md:text-xl text-slate-400 mb-16">
-                        Agents connect candidates with companies—and earn commission for every successful match.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="scroll-reveal bg-slate-800/50 border border-slate-700 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="bg-indigo-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-                            <h3 class="text-2xl font-bold">For Candidates</h3>
-                        </div>
-                        <p class="text-slate-400 mb-6">Upload your resume and let agents discover you. No more endless applications or battling ATS systems.</p>
-                        <ul class="space-y-3">
-                            <li class="flex items-start"><span class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span class="text-slate-300">Create your private profile.</span></li>
-                            <li class="flex items-start"><span class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span class="text-slate-300">Agents discover your skills.</span></li>
-                            <li class="flex items-start"><span class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span class="text-slate-300">Get introduced to top companies.</span></li>
-                        </ul>
-                    </div>
-                    <div class="scroll-reveal bg-purple-500/10 border border-purple-400 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300 ring-2 ring-purple-500/50 shadow-2xl shadow-purple-500/10">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="bg-purple-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400"><path d="M18 5a2 2 0 0 0-2-2h-3.36a2 2 0 0 0-1.87 1.26L10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.36a2 2 0 0 0-1.26-1.87L16 14l1.26-1.87A2 2 0 0 0 18 10V5Z"/><path d="M12 9v4"/></svg></div>
-                            <h3 class="text-2xl font-bold">For Agents</h3>
-                        </div>
-                        <p class="text-slate-400 mb-6">Access the full index, make intelligent matches, and turn your expertise into recurring revenue.</p>
-                        <div class="inline-block bg-gradient-to-r from-amber-400 to-orange-500 text-black font-bold px-4 py-1 rounded-full text-sm mb-6">💰 Earn Commission Per Hire</div>
-                        <ul class="space-y-3">
-                             <li class="flex items-start"><span class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span class="text-slate-300">Access the candidate & job index.</span></li>
-                             <li class="flex items-start"><span class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span class="text-slate-300">Use AI tools to find perfect matches.</span></li>
-                             <li class="flex items-start"><span class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span class="text-slate-300">Get paid for successful placements.</span></li>
-                        </ul>
-                    </div>
-                    <div class="scroll-reveal bg-slate-800/50 border border-slate-700 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="bg-pink-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-pink-400"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
-                            <h3 class="text-2xl font-bold">For Companies</h3>
-                        </div>
-                        <p class="text-slate-400 mb-6">Post your openings and let agents bring you qualified, pre-vetted candidates. No more sifting through resumes.</p>
-                        <ul class="space-y-3">
-                            <li class="flex items-start"><span class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span class="text-slate-300">Post your job openings privately.</span></li>
-                            <li class="flex items-start"><span class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span class="text-slate-300">Agents bring you qualified talent.</span></li>
-                            <li class="flex items-start"><span class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span class="text-slate-300">Interview only the best candidates.</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- WHY THIS CHANGES EVERYTHING SECTION -->
-        <section class="py-20 sm:py-32 bg-slate-900/70">
-            <div class="container mx-auto px-6">
-                <div class="scroll-reveal text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">Why This Changes Everything</h2>
-                     <p class="text-lg md:text-xl text-slate-400 mb-16">
-                        An ecosystem built on privacy, quality, and aligned incentives.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="scroll-reveal text-center p-6">
-                         <div class="text-5xl mb-4">🔒</div>
-                        <h4 class="text-xl font-bold mb-2">Privacy First</h4>
-                        <p class="text-slate-400">No public resume database. No company spam. Your information is protected and shared only when you approve.</p>
-                    </div>
-                    <div class="scroll-reveal text-center p-6">
-                         <div class="text-5xl mb-4">🎯</div>
-                        <h4 class="text-xl font-bold mb-2">Quality Over Quantity</h4>
-                        <p class="text-slate-400">Agents are incentivized to make great matches. Better matches mean happier candidates and companies.</p>
-                    </div>
-                    <div class="scroll-reveal text-center p-6">
-                         <div class="text-5xl mb-4">⚡</div>
-                        <h4 class="text-xl font-bold mb-2">Unmatched Efficiency</h4>
-                        <p class="text-slate-400">AI-powered agents can process thousands of matches in seconds, finding opportunities humans might miss.</p>
-                    </div>
-                    <div class="scroll-reveal text-center p-6">
-                        <div class="text-5xl mb-4">🤖</div>
-                        <h4 class="text-xl font-bold mb-2">Human + AI Synergy</h4>
-                        <p class="text-slate-400">Human agents bring intuition and relationship-building. AI agents bring scale and data analysis. Both work for you.</p>
-                    </div>
-                    <div class="scroll-reveal text-center p-6">
-                        <div class="text-5xl mb-4">💼</div>
-                        <h4 class="text-xl font-bold mb-2">Earn As You Match</h4>
-                        <p class="text-slate-400">A new paradigm for recruiters. Turn your skills into a scalable business with every successful placement.</p>
-                    </div>
-                     <div class="scroll-reveal text-center p-6">
-                        <div class="text-5xl mb-4">🌐</div>
-                        <h4 class="text-xl font-bold mb-2">Powerful Network Effects</h4>
-                        <p class="text-slate-400">More candidates attract more agents. More agents attract more companies. Everyone in the ecosystem wins.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-slate-900 border-t border-slate-800">
         <div class="container mx-auto px-6 py-8 text-center text-slate-400">
             <div class="flex justify-center space-x-6 mb-4">
@@ -515,7 +270,6 @@
             <button class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors text-3xl leading-none" data-modal-close>&times;</button>
             <h3 class="text-2xl font-bold mb-2">Become a SpotOrigin Agent</h3>
             <p class="text-slate-400 mb-6">Join our network of agents and start earning by connecting top talent with great companies.</p>
-
             <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 mb-6 text-sm">
                 <ul class="space-y-4 text-slate-300">
                     <li class="flex items-start gap-3">
@@ -532,7 +286,6 @@
                     </li>
                 </ul>
             </div>
-
             <form action="https://formspree.io/f/xyznlzkk" method="POST" class="space-y-4">
                <div>
                    <label for="agent-name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
@@ -555,7 +308,6 @@
         </div>
     </div>
 
-    <!-- COMPANY MODAL -->
     <div id="company-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
         <div class="fixed inset-0 bg-black/60 backdrop-blur-sm modal-backdrop opacity-0"></div>
         <div class="relative bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md p-8 border border-slate-700 modal-content scale-95">
@@ -594,39 +346,8 @@
             const urlParams = new URLSearchParams(window.location.search);
             const referrer = urlParams.get('ref');
             if (referrer) {
-                const referrerDesktopInput = document.getElementById('referrer-desktop');
-                const referrerMobileInput = document.getElementById('referrer-mobile');
-                if (referrerDesktopInput) referrerDesktopInput.value = referrer;
-                if (referrerMobileInput) referrerMobileInput.value = referrer;
-            }
-
-            const simpleFormContainer = document.getElementById('simple-form-container');
-            const fullFormContainer = document.getElementById('full-form-container');
-            const showFullFormLink = document.getElementById('show-full-form');
-            const showSimpleFormLink = document.getElementById('show-simple-form');
-
-            // Set the default view based on screen size
-            if (window.innerWidth < 768) {
-                fullFormContainer.classList.add('hidden');
-                simpleFormContainer.classList.remove('hidden');
-            } else {
-                simpleFormContainer.classList.add('hidden');
-                fullFormContainer.classList.remove('hidden');
-            }
-
-            // Set up the toggle links
-            if (showFullFormLink && showSimpleFormLink) {
-                showFullFormLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    simpleFormContainer.classList.add('hidden');
-                    fullFormContainer.classList.remove('hidden');
-                });
-
-                showSimpleFormLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    fullFormContainer.classList.add('hidden');
-                    simpleFormContainer.classList.remove('hidden');
-                });
+                const referrerMainInput = document.getElementById('referrer-main');
+                if (referrerMainInput) referrerMainInput.value = referrer;
             }
 
             const learnMoreBtn = document.getElementById('learn-more-btn');
@@ -650,63 +371,6 @@
             revealElements.forEach(element => {
                 revealObserver.observe(element);
             });
-            
-            const locationInput = document.getElementById('location-input');
-            const locationsContainer = document.getElementById('locations-container');
-            const hiddenLocationsInput = document.getElementById('desired-locations-hidden');
-            let locations = [];
-
-            const renderLocations = () => {
-                if (!locationsContainer) return;
-                locationsContainer.innerHTML = '';
-                locations.forEach(location => {
-                    const tag = document.createElement('span');
-                    tag.className = 'bg-slate-700 text-slate-200 text-sm font-medium px-3 py-1 rounded-full flex items-center gap-2';
-                    tag.textContent = location;
-                    
-                    const removeBtn = document.createElement('button');
-                    removeBtn.type = 'button';
-                    removeBtn.className = 'text-slate-400 hover:text-white font-bold pl-1';
-                    removeBtn.innerHTML = '&times;';
-                    removeBtn.onclick = () => {
-                        locations = locations.filter(l => l !== location);
-                        hiddenLocationsInput.value = locations.join(', ');
-                        renderLocations();
-                    };
-                    
-                    tag.appendChild(removeBtn);
-                    locationsContainer.appendChild(tag);
-                });
-            };
-
-            const addLocation = () => {
-                if (!locationInput) return;
-                const newLocation = locationInput.value.replace(/,/g, '').trim();
-                if (newLocation && !locations.includes(newLocation)) {
-                    locations.push(newLocation);
-                    hiddenLocationsInput.value = locations.join(', ');
-                    renderLocations();
-                }
-                locationInput.value = '';
-            };
-
-            if (window.innerWidth >= 768) {
-                if(hiddenLocationsInput) {
-                    locations = ['Remote'];
-                    hiddenLocationsInput.value = locations.join(', ');
-                    renderLocations();
-                }
-            }
-
-            if(locationInput) {
-                locationInput.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ',') {
-                        e.preventDefault();
-                        addLocation();
-                    }
-                });
-                locationInput.addEventListener('blur', addLocation);
-            }
             
             const openModalButtons = document.querySelectorAll('[data-modal-target]');
             openModalButtons.forEach(button => {
@@ -745,47 +409,6 @@
                     backdrop.addEventListener('click', () => closeModal(modal));
                 }
             });
-
-            const dropzone = document.getElementById('resume-dropzone');
-            const fileInput = document.getElementById('resume-desktop');
-            const fileNameDisplay = document.getElementById('file-name-display');
-            if (dropzone && fileInput && fileNameDisplay) {
-                const originalDropzoneContent = fileNameDisplay.innerHTML;
-
-                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                    dropzone.addEventListener(eventName, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
-                    document.body.addEventListener(eventName, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
-                });
-
-                dropzone.addEventListener('dragover', () => dropzone.classList.add('drag-over'));
-                dropzone.addEventListener('dragenter', () => dropzone.classList.add('drag-over'));
-                dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
-                dropzone.addEventListener('drop', () => dropzone.classList.remove('drag-over'));
-
-                dropzone.addEventListener('drop', (e) => {
-                    const dt = e.dataTransfer;
-                    const files = dt.files;
-                    if (files.length > 0) {
-                        fileInput.files = files;
-                        updateFileName(files[0]);
-                    }
-                });
-                
-                fileInput.addEventListener('change', (e) => {
-                    const files = e.target.files;
-                    if (files.length > 0) {
-                        updateFileName(files[0]);
-                    }
-                });
-
-                const updateFileName = (file) => {
-                    if (file) {
-                        fileNameDisplay.innerHTML = `<span class="text-slate-200">${file.name}</span>`;
-                    } else {
-                         fileNameDisplay.innerHTML = originalDropzoneContent;
-                    }
-                }
-            }
         });
     </script>
 </body>
