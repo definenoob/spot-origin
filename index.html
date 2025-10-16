@@ -97,10 +97,171 @@
                 </div>
             </section>
 
+            <section id="visualization" class="py-20 sm:py-32 bg-slate-900 overflow-hidden">
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="scroll-reveal text-center max-w-3xl mx-auto">
+                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">Agents Are Your<br><span class="text-shimmer">Tireless Advocates</span></h2>
+                        <p class="text-lg md:text-xl text-slate-400 mb-16">
+                            Our agents act as the central hub, connecting the right people to the right opportunities.
+                        </p>
+                    </div>
+                    <div id="viz-container" class="relative w-full h-96 max-w-4xl mx-auto bg-slate-800/20 border border-slate-700 rounded-2xl p-4">
+                        <div id="viz-agent" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-28 h-28 bg-purple-500/20 border-2 border-purple-400 rounded-full shadow-2xl shadow-purple-500/20 transition-transform duration-300">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-300 mb-1"><path d="M18 5a2 2 0 0 0-2-2h-3.36a2 2 0 0 0-1.87 1.26L10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.36a2 2 0 0 0-1.26-1.87L16 14l1.26-1.87A2 2 0 0 0 18 10V5Z"/><path d="M12 9v4"/></svg>
+                            <span id="agent-text" class="font-bold text-sm text-purple-300 transition-opacity duration-300">Agent</span>
+                        </div>
+                        <div class="absolute top-4 left-4 text-slate-300 font-bold text-lg">Candidates</div>
+                        <div class="absolute top-4 right-4 text-slate-300 font-bold text-lg">Jobs</div>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const vizContainer = document.getElementById('viz-container');
+                        const agentNode = document.getElementById('viz-agent');
+                        const agentText = document.getElementById('agent-text');
+                        if (!vizContainer || !agentNode || !agentText) return;
+    
+                        const candidates = [];
+                        const jobs = [];
+                        const NUM_NODES = 5;
+                        let animationInterval;
+    
+                        const createNode = (type, index) => {
+                            const node = document.createElement('div');
+                            const size = 'w-16 h-16';
+                            const text = type === 'candidate' ? `Cand. #${index + 1}` : `Job #${index + 1}`;
+                            const colorClasses = type === 'candidate' 
+                                ? 'bg-indigo-500/20 border-indigo-400 text-indigo-300' 
+                                : 'bg-pink-500/20 border-pink-400 text-pink-300';
+                            
+                            node.className = `absolute flex items-center justify-center text-xs font-semibold rounded-full border-2 transition-all duration-300 ${size} ${colorClasses}`;
+                            node.textContent = text;
+                            vizContainer.appendChild(node);
+                            return node;
+                        };
+    
+                        const positionNodes = () => {
+                            const containerRect = vizContainer.getBoundingClientRect();
+                            const padding = 60; 
+    
+                            [candidates, jobs].forEach((nodeArray, colIndex) => {
+                                nodeArray.forEach((node, rowIndex) => {
+                                    const x = colIndex === 0 
+                                        ? padding 
+                                        : containerRect.width - node.offsetWidth - padding;
+                                    const y = padding + (rowIndex * (containerRect.height - padding * 2) / (NUM_NODES - 1));
+                                    node.style.left = `${x}px`;
+                                    node.style.top = `${y - node.offsetHeight / 2}px`;
+                                });
+                            });
+                        };
+    
+                        for (let i = 0; i < NUM_NODES; i++) {
+                            candidates.push(createNode('candidate', i));
+                            jobs.push(createNode('job', i));
+                        }
+                        
+                        positionNodes();
+                        window.addEventListener('resize', positionNodes);
+    
+                        function drawLine(startElem, endElem, color) {
+                            const line = document.createElement('div');
+                            line.style.position = 'absolute';
+                            line.style.height = '2px';
+                            line.style.backgroundColor = color;
+                            line.style.transformOrigin = '0 0';
+                            line.style.opacity = '0';
+                            line.style.transition = 'opacity 0.5s ease-in-out, width 0.5s ease-in-out';
+                            line.style.zIndex = '-1';
+                            vizContainer.appendChild(line);
+    
+                            const startRect = startElem.getBoundingClientRect();
+                            const endRect = endElem.getBoundingClientRect();
+                            const containerRect = vizContainer.getBoundingClientRect();
+    
+                            const startX = startRect.left + startRect.width / 2 - containerRect.left;
+                            const startY = startRect.top + startRect.height / 2 - containerRect.top;
+                            const endX = endRect.left + endRect.width / 2 - containerRect.left;
+                            const endY = endRect.top + endRect.height / 2 - containerRect.top;
+    
+                            const distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+                            const angle = Math.atan2(endY - startY, endX - startX) * 180 / Math.PI;
+    
+                            line.style.left = `${startX}px`;
+                            line.style.top = `${startY}px`;
+                            line.style.width = `0px`;
+                            line.style.transform = `rotate(${angle}deg)`;
+                            
+                            setTimeout(() => {
+                                line.style.opacity = '1';
+                                line.style.width = `${distance}px`;
+                            }, 10);
+                            
+                            return line;
+                        }
+    
+                        function runAnimation() {
+                            const randomCandidate = candidates[Math.floor(Math.random() * candidates.length)];
+                            const randomJob = jobs[Math.floor(Math.random() * jobs.length)];
+    
+                            // Agent starts "judging"
+                            agentText.textContent = 'Matching...';
+                            agentNode.classList.add('scale-110', 'animate-pulse');
+    
+                            // Highlight candidate
+                            randomCandidate.classList.add('scale-110', 'shadow-lg', 'shadow-indigo-500/50');
+                            
+                            let line1, line2;
+    
+                            // After a delay, draw first line and highlight job
+                            setTimeout(() => {
+                                line1 = drawLine(randomCandidate, agentNode, '#818cf8'); // indigo-400
+                                randomJob.classList.add('scale-110', 'shadow-lg', 'shadow-pink-500/50');
+                            }, 500);
+                            
+                            // After another delay, draw second line
+                            setTimeout(() => {
+                                 line2 = drawLine(agentNode, randomJob, '#f472b6'); // pink-400
+                            }, 1000);
+    
+                            setTimeout(() => {
+                                // Cleanup
+                                if (line1) line1.style.opacity = '0';
+                                if (line2) line2.style.opacity = '0';
+                                agentText.textContent = 'Agent';
+                                agentNode.classList.remove('scale-110', 'animate-pulse');
+                                randomCandidate.classList.remove('scale-110', 'shadow-lg', 'shadow-indigo-500/50');
+                                randomJob.classList.remove('scale-110', 'shadow-lg', 'shadow-pink-500/50');
+                                setTimeout(() => {
+                                    if (line1) line1.remove();
+                                    if (line2) line2.remove();
+                                }, 500);
+                            }, 2500);
+                        }
+                        
+                        const vizObserver = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    if (!animationInterval) {
+                                        runAnimation(); // Run once immediately
+                                        animationInterval = setInterval(runAnimation, 3500);
+                                    }
+                                } else {
+                                    clearInterval(animationInterval);
+                                    animationInterval = null;
+                                }
+                            });
+                        }, { threshold: 0.5 });
+    
+                        vizObserver.observe(vizContainer);
+                    });
+                </script>
+            </section>    
+
             <section class="py-20 sm:py-32 bg-slate-900/70 relative z-10">
                 <div class="container mx-auto px-6">
                     <div class="scroll-reveal text-center max-w-3xl mx-auto">
-                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">Finally, A Job Search That Doesn't <span class="text-shimmer">Suck</span></h2>
+                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">Finally, A Job Search That <br><span class="text-shimmer">Feels Good</span></h2>
                         <p class="text-lg md:text-xl text-slate-400 mb-16">
                             We fixed everything that makes you want to throw your laptop out the window.
                         </p>
@@ -205,8 +366,8 @@
                     </div>
                 </div>
             </section>
-
         </div>
+
         <section id="final-cta" class="py-20 sm:py-32 bg-slate-900">
             <div class="container mx-auto px-6 relative z-10">
                 <div class="scroll-reveal bg-slate-800/50 border border-slate-700 rounded-2xl p-8 sm:p-12 text-center max-w-3xl mx-auto">
@@ -232,7 +393,7 @@
                         <button type="submit" class="w-full bg-white text-indigo-600 font-bold py-4 px-6 rounded-full !mt-6 text-lg hover:bg-slate-100 hover:scale-105 transition-all duration-300">Get My Link</button>
                     </form>
                 </div>
-                 
+                
                 <div class="scroll-reveal mt-16 text-center">
                     <p class="text-lg md:text-xl text-slate-200 mb-8">Are you a recruiter or a hiring company?</p>
                 </div>
