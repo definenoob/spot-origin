@@ -45,7 +45,7 @@
                     <p class="text-lg text-slate-400">Your information is confidential and only shared with vetted agents when a potential match is found.</p>
                 </div>
                 
-                <form action="https://formspree.io/f/xblzqllb" method="POST" enctype="multipart/form-data" class="space-y-4">
+                <form id="profile-form" action="https://formspree.io/f/xblzqllb" method="POST" novalidate class="space-y-4">
                     <input type="hidden" name="_autoresponse" value="Your SpotOrigin Application has been received!">
                     <input type="hidden" id="referrer-desktop" name="referrer_email">
                     
@@ -81,15 +81,15 @@
                         <input type="text" name="last_compensation" id="last-compensation" placeholder="e.g., $120,000/year or $75/hour" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white placeholder-slate-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2">Upload Your Resume</label>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Upload Your Resume (Required)</label>
                         <div id="resume-dropzone" class="relative flex justify-center rounded-lg border-2 border-dashed border-slate-600 px-6 py-10 transition-colors">
                             <div class="text-center">
                                 <svg class="mx-auto h-12 w-12 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
-                                <div id="file-name-display" class="mt-4 flex text-sm leading-6 text-slate-400">
-                                    <label for="resume-desktop" class="relative cursor-pointer rounded-md font-semibold text-indigo-400 hover:text-indigo-300"><span>Upload a file</span><input id="resume-desktop" name="resume" type="file" required class="sr-only"></label>
+                                <div id="file-info" class="mt-4 text-sm leading-6 text-slate-400">
+                                    <label for="resume-input" class="relative cursor-pointer rounded-md font-semibold text-indigo-400 hover:text-indigo-300"><span>Upload a file</span><input id="resume-input" name="resume" type="file" class="sr-only"></label>
                                     <p class="pl-1">or drag and drop</p>
                                 </div>
-                                <p class="text-xs leading-5 text-slate-500">PDF, DOC, DOCX up to 10MB</p>
+                                <p class="text-xs leading-5 text-slate-500" id="file-constraints">PDF, DOC, DOCX up to 10MB</p>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,8 @@
                             <label for="terms-desktop" class="text-slate-400">I agree to the <a href="terms.html" target="_blank" class="font-medium text-indigo-400 hover:text-indigo-300 underline">Terms of Service</a> and <a href="privacy.html" target="_blank" class="font-medium text-indigo-400 hover:text-indigo-300 underline">Privacy Policy</a>.</label>
                         </div>
                     </div>
-                    <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-4 px-6 rounded-full !mt-8 text-lg hover:bg-indigo-700 hover:scale-105 transition-all duration-300">Submit Application</button>
+                    <div id="form-messages" class="text-center"></div>
+                    <button type="submit" id="submit-button" class="w-full bg-indigo-600 text-white font-bold py-4 px-6 rounded-full !mt-8 text-lg hover:bg-indigo-700 hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:scale-100">Submit Application</button>
                 </form>
             </div>
         </div>
@@ -109,6 +110,12 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- GLOBAL VARIABLES ---
+            const form = document.getElementById('profile-form');
+            const submitButton = document.getElementById('submit-button');
+            const messagesDiv = document.getElementById('form-messages');
+            let uploadedFile = null;
+
             // --- REFERRAL CODE LOGIC ---
             const urlParams = new URLSearchParams(window.location.search);
             const referrer = urlParams.get('ref');
@@ -123,6 +130,7 @@
             const hiddenLocationsInput = document.getElementById('desired-locations-hidden');
             let locations = [];
 
+            // **THE FIX: Moved these function definitions to the top of the section**
             const renderLocations = () => {
                 if (!locationsContainer) return;
                 locationsContainer.innerHTML = '';
@@ -156,14 +164,14 @@
                 }
                 locationInput.value = '';
             };
-
-            if(hiddenLocationsInput) {
+            
+            // This code now works because the functions above are defined.
+            if (hiddenLocationsInput) {
                 locations = ['Remote'];
                 hiddenLocationsInput.value = locations.join(', ');
                 renderLocations();
             }
-
-            if(locationInput) {
+             if (locationInput) {
                 locationInput.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ',') {
                         e.preventDefault();
@@ -173,46 +181,102 @@
                 locationInput.addEventListener('blur', addLocation);
             }
             
-            // --- DRAG-AND-DROP RESUME LOGIC ---
+            // --- ROBUST DRAG-AND-DROP & FILE HANDLING ---
             const dropzone = document.getElementById('resume-dropzone');
-            const fileInput = document.getElementById('resume-desktop');
-            const fileNameDisplay = document.getElementById('file-name-display');
-            if (dropzone && fileInput && fileNameDisplay) {
-                const originalDropzoneContent = fileNameDisplay.innerHTML;
-
+            const fileInput = document.getElementById('resume-input');
+            const fileInfo = document.getElementById('file-info');
+            const fileConstraints = document.getElementById('file-constraints');
+            
+            if (dropzone && fileInput && fileInfo) {
+                // This logic remains the same and is correct.
                 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                    dropzone.addEventListener(eventName, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
-                    document.body.addEventListener(eventName, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
+                    dropzone.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
                 });
-
-                dropzone.addEventListener('dragover', () => dropzone.classList.add('drag-over'));
+                document.body.addEventListener('dragover', e => e.preventDefault());
+                document.body.addEventListener('drop', e => e.preventDefault());
                 dropzone.addEventListener('dragenter', () => dropzone.classList.add('drag-over'));
+                dropzone.addEventListener('dragover', () => dropzone.classList.add('drag-over'));
                 dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
                 dropzone.addEventListener('drop', () => dropzone.classList.remove('drag-over'));
-
-                dropzone.addEventListener('drop', (e) => {
-                    const dt = e.dataTransfer;
-                    const files = dt.files;
-                    if (files.length > 0) {
-                        fileInput.files = files;
-                        updateFileName(files[0]);
-                    }
+                dropzone.addEventListener('drop', e => {
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) handleFile(files[0]);
                 });
-                
-                fileInput.addEventListener('change', (e) => {
+                fileInput.addEventListener('change', e => {
                     const files = e.target.files;
-                    if (files.length > 0) {
-                        updateFileName(files[0]);
-                    }
+                    if (files.length > 0) handleFile(files[0]);
                 });
 
-                const updateFileName = (file) => {
-                    if (file) {
-                        fileNameDisplay.innerHTML = `<span class="text-slate-200">${file.name}</span>`;
-                    } else {
-                         fileNameDisplay.innerHTML = originalDropzoneContent;
+                const handleFile = (file) => {
+                    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+                    const maxSize = 10 * 1024 * 1024; // 10MB
+                    if (!allowedTypes.includes(file.type)) {
+                        fileInfo.innerHTML = `<span class="text-red-400">Invalid file type. Please use PDF, DOC, or DOCX.</span>`;
+                        fileConstraints.classList.add('text-red-400');
+                        uploadedFile = null;
+                        return;
                     }
-                }
+                    if (file.size > maxSize) {
+                        fileInfo.innerHTML = `<span class="text-red-400">File is too large. Max size is 10MB.</span>`;
+                        fileConstraints.classList.add('text-red-400');
+                        uploadedFile = null;
+                        return;
+                    }
+                    uploadedFile = file;
+                    fileInfo.innerHTML = `<span class="text-slate-200">${file.name}</span>`;
+                    fileConstraints.classList.remove('text-red-400');
+                    messagesDiv.innerHTML = '';
+                };
+            }
+
+            // --- AJAX FORM SUBMISSION ---
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    if (!uploadedFile) {
+                        messagesDiv.innerHTML = `<p class="text-red-400">Please upload your resume before submitting.</p>`;
+                        return;
+                    }
+                    if (!form.checkValidity()) {
+                        messagesDiv.innerHTML = `<p class="text-red-400">Please fill out all required fields.</p>`;
+                        return;
+                    }
+
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+                    messagesDiv.innerHTML = '';
+
+                    const formData = new FormData(form);
+                    formData.append('resume', uploadedFile, uploadedFile.name);
+
+                    try {
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        if (response.ok) {
+                            messagesDiv.innerHTML = `<p class="text-green-400">Success! Your profile has been submitted. We'll be in touch.</p>`;
+                            submitButton.textContent = 'Submitted!';
+                            form.reset();
+                            uploadedFile = null;
+                            fileInfo.innerHTML = `
+                                <label for="resume-input" class="relative cursor-pointer rounded-md font-semibold text-indigo-400 hover:text-indigo-300"><span>Upload a file</span><input id="resume-input" name="resume" type="file" class="sr-only"></label>
+                                <p class="pl-1">or drag and drop</p>
+                            `;
+                            // Reset locations to default
+                            locations = ['Remote'];
+                            hiddenLocationsInput.value = locations.join(', ');
+                            renderLocations();
+                        } else {
+                            throw new Error('Submission failed. Please try again.');
+                        }
+                    } catch (error) {
+                        messagesDiv.innerHTML = `<p class="text-red-400">${error.message || 'An unknown error occurred.'}</p>`;
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Submit Application';
+                    }
+                });
             }
         });
     </script>
