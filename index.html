@@ -28,12 +28,27 @@
         .btn-secondary:hover { background-position: right; }
         .badge-pulse { animation: pulse 2s ease-in-out infinite; }
         @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.9; } }
-        .text-shimmer { background: linear-gradient(90deg, #fff 0%, #fff 40%, #a5b4fc 50%, #fff 60%, #fff 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite; }
-        @keyframes shimmer { 
-            0% { background-position: 100% 0; } 
-            100% { background-position: -100% 0; } 
+        .text-shimmer {
+            background: linear-gradient(90deg, #fff 0%, #fff 40%, #a5b4fc 50%, #fff 60%, #fff 100%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+            transform: translateZ(0); /* <-- ADD THIS LINE */
         }
-        .grid-pattern { background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 50px 50px; animation: gridMove 20s linear infinite; }
+        @keyframes shimmer { 
+            /* 0% { background-position: 0 0; }  <-- REMOVE */
+            /* 100% { background-position: -200% 0; } <-- REMOVE */
+            from { background-position: 200% 0; } /* <-- ADD THIS */
+            to { background-position: -200% 0; }   /* <-- ADD THIS */
+        }
+        .grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            transform: translateZ(0); /* <-- ADD THIS LINE */
+        }
         @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
         .scroll-reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -60,10 +75,10 @@
             <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
                 <div class="relative z-10 text-center px-4 py-20 max-w-5xl mx-auto">
                     <h1 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 text-reveal text-reveal-1 leading-tight">
-                        Get Headhunted. <br><span class="text-shimmer">Not Ignored.</span>
+                        Let elite agents <span class="text-shimmer">compete</span> to find you.
                     </h1>
                     <p class="text-lg md:text-xl text-slate-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed text-reveal text-reveal-2">
-                        You have years of experience. Stop wasting it on applications that go into a black hole. Create one private profile and let a network of elite, vetted agents compete to bring top opportunities directly to you.
+                        Your hands-off job search is here. Stop wasting your experience on applications that go into a black hole. Create one <strong>private profile</strong> and let elite, vetted agents compete to <strong>champion your story directly to hiring managers</strong>—bringing top opportunities straight to you.
                     </p>
                     
                     <form action="https://formspree.io/f/xanpaeoo" method="POST" class="max-w-xl mx-auto text-reveal text-reveal-3">
@@ -73,24 +88,24 @@
                             <input type="email" name="email" id="email-hero" required placeholder="Enter your email address..." class="flex-grow w-full bg-white/10 border-2 border-white/30 rounded-full px-6 py-4 text-white placeholder-slate-300 text-lg focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 outline-none backdrop-blur-sm">
                             
                             <button type="submit" class="btn-primary bg-white text-indigo-600 font-bold px-10 py-4 rounded-full text-lg shadow-2xl hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 relative z-10 sm:w-auto w-full">
-                                <span class="relative z-10">Create My Private Profile</span>
+                                <span class="relative z-10">Create My Free Private Profile</span>
                             </button>
                         </div>
                         
                         </form>
-
+            
                     <div class="mt-12 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 text-slate-200 text-sm text-reveal text-reveal-4">
                         <div class="flex items-start sm:items-center gap-2">
                             <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span class_x="text-left"><span class="font-semibold text-white">100% Private and Confidential:</span> Your profile is never public.</span>
+                            <span class_x="text-left"><span class="font-semibold text-white">100% Private:</span> Your profile is hidden. You approve who sees it.</span>
                         </div>
                         <div class="flex items-start sm:items-center gap-2">
                             <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span class_x="text-left"><span class="font-semibold text-white">Vetted Agents Only:</span> Only elite, approved recruiters can contact you.</span>
+                            <span class_x="text-left"><span class="font-semibold text-white">Elite Agents Only:</span> No spam. Only vetted recruiters can connect.</span>
                         </div>
                         <div class="flex items-start sm:items-center gap-2">
                             <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span class_x="text-left"><span class="font-semibold text-white">No Spam. Ever:</span> We exist to eliminate the noise, not create it.</span>
+                            <span class_x="text-left"><span class="font-semibold text-white">Total Control:</span> Pause your profile, or mute agents anytime. Always free.</span>
                         </div>
                     </div>
                 </div>
