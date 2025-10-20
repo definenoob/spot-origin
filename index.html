@@ -220,25 +220,13 @@
     <header
         class="fixed top-0 left-0 right-0 z-50 w-full bg-slate-900/70 backdrop-blur-md border-b border-slate-800 shadow-lg">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-tighter text-white">SpotOrigin</a>
+            <a href="#" class="text-2xl font-bold tracking-tighter text-white">🎯 SpotOrigin</a>
+
+            <p class="text-xs text-slate-300">
+                A Delaware Public Benefit Corporation
+            </p>
 
         </nav>
-    </header>
-
-    <div id="mobile-menu" class="hidden md:hidden bg-slate-800/95 backdrop-blur-lg border-t border-slate-700">
-        <div class="flex flex-col space-y-4 px-6 py-5">
-            <a href="#features" class="block text-slate-200 hover:text-white py-2">Features</a>
-            <a href="#how-it-works" class="block text-slate-200 hover:text-white py-2">How It Works</a>
-            <button data-modal-target="agent-modal" class="block text-left text-slate-200 hover:text-white py-2">For
-                Agents</button>
-            <button data-modal-target="company-modal" class="block text-left text-slate-200 hover:text-white py-2">For
-                Companies</button>
-            <a href="#final-cta"
-                class="block w-full text-center bg-white text-emerald-700 font-bold px-5 py-3 rounded-full text-sm shadow-lg mt-4">
-                Create Free Profile
-            </a>
-        </div>
-    </div>
     </header>
 
     <main>
@@ -249,9 +237,8 @@
             <div class="absolute inset-0 grid-pattern"></div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 via-30% to-slate-900 to-100%">
             </div>
-
-            <section id="hero" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-                <div class="relative z-10 text-center px-4 py-20 max-w-5xl mx-auto">
+            <section id="hero" class="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+                <div class="relative z-10 text-center px-4 py-16 max-w-5xl mx-auto">
                     <h1
                         class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 text-reveal text-reveal-1 leading-tight">
                         Stop looking for work. <br>
@@ -259,17 +246,13 @@
                     </h1>
                     <p
                         class="text-lg md:text-xl text-slate-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed text-reveal text-reveal-2">
-                        Your hands-free job search is <u>here</u>. Stop wasting your experience on applications that go
-                        into a black hole. Create one <strong>private profile</strong> and let elite, vetted agents
-                        compete to <strong>champion your story directly to hiring managers</strong>—bringing top
-                        opportunities straight to you.
+                        Tired of job applications going nowhere? Create one <strong>private profile</strong> and let
+                        elite agents <strong>champion your story directly to hiring managers</strong>, bringing top
+                        opportunities right to your inbox.
                     </p>
 
                     <form id="hero-form" action="https://formspree.io/f/xanpaeoo" method="POST"
                         class="max-w-xl mx-auto text-reveal text-reveal-3">
-                        <input type="hidden" name="_autoresponse"
-                            value="The agents are waiting... Here's your private SpotOrigin link.">
-                        <input type="hidden" id="referrer-hero" name="referrer_email">
 
                         <div class="flex flex-col sm:flex-row gap-4">
                             <label for="email-hero" class="sr-only">Email Address</label>
@@ -301,266 +284,161 @@
                         </div>
 
                         <p class="mt-6 text-sm text-slate-200">
-                            At a minimum, you'll get expert resume feedback.
+                            <i>When an agent champions you, your resume gets more than just a glance.</i><br>
+                            We'll add the detail that machines miss but hiring managers value.<br>
+                            <b class="text-slate-100">Welcome to a job search that respects your experience.</b>
                         </p>
 
                     </form>
 
                     <div
-                        class="mt-12 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 text-slate-200 text-sm text-reveal text-reveal-4">
-                        <div class="flex items-start sm:items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <span class_x="text-left"><span class="font-semibold text-white">100% Private:</span> Your
-                                profile is hidden. You approve who sees it.</span>
-                        </div>
-                        <div class="flex items-start sm:items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <span class_x="text-left"><span class="font-semibold text-white">Elite Agents Only:</span>
-                                No spam. Only approved recruiters can connect.</span>
-                        </div>
-                        <div class="flex items-start sm:items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <span class_x="text-left"><span class="font-semibold text-white">Total Control:</span> Pause
-                                your profile, or mute agents anytime. Always free.</span>
-                        </div>
-                    </div>
-                </div>
+                        class="mt-12 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10 text-slate-200 text-reveal text-reveal-4">
 
-                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
+                        <div class="text-center">
+                            <div
+                                class="flex items-center justify-center h-12 w-12 bg-emerald-900/50 border-2 border-emerald-500/30 rounded-full mx-auto mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-emerald-400">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white mb-1">Your Privacy is Absolute</h3>
+                            <p class="text-sm text-slate-300">Your profile is hidden by default. You approve every
+                                single person who sees it.</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div
+                                class="flex items-center justify-center h-12 w-12 bg-emerald-900/50 border-2 border-emerald-500/30 rounded-full mx-auto mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-emerald-400">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white mb-1">Only Vetted Agents</h3>
+                            <p class="text-sm text-slate-300">No spam, ever. Only approved, high-performing recruiters
+                                can connect with you.</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div
+                                class="flex items-center justify-center h-12 w-12 bg-emerald-900/50 border-2 border-emerald-500/30 rounded-full mx-auto mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-emerald-400">
+                                    <line x1="4" y1="21" x2="4" y2="14"></line>
+                                    <line x1="4" y1="10" x2="4" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="12"></line>
+                                    <line x1="12" y1="8" x2="12" y2="3"></line>
+                                    <line x1="20" y1="21" x2="20" y2="16"></line>
+                                    <line x1="20" y1="12" x2="20" y2="3"></line>
+                                    <line x1="1" y1="14" x2="7" y2="14"></line>
+                                    <line x1="9" y1="8" x2="15" y2="8"></line>
+                                    <line x1="17" y1="16" x2="23" y2="16"></line>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-white mb-1">You Are In Control</h3>
+                            <p class="text-sm text-slate-300">Pause your profile or mute agents at any time. The service
+                                is always free for you.</p>
+                        </div>
+
+                    </div>
                 </div>
             </section>
 
-            <section id="visualization" class="pt-10 pb-20 sm:pt-16 sm:pb-32 bg-slate-900 overflow-hidden">
-                <div class="container mx-auto px-6 relative z-10">
-                    <div class="text-center max-w-3xl mx-auto">
-                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">These Agents Are
-                            Your<br><span class="text-shimmer">Tireless Advocates</span></h2>
-                        <p class="text-lg md:text-xl text-slate-400 mb-16">
-                            Think of them as the human override for a broken system. They don't just match keywords;
-                            they champion your story to hiring managers.
+            <section id="theorem" class="bg-slate-900/70">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto text-center border-t border-b border-slate-700 py-10">
+                        <h3 class="text-lg font-semibold tracking-widest text-emerald-400 uppercase mb-4">Our
+                            Fundamental Theorem</h3>
+                        <p class="text-2xl md:text-3xl font-light text-slate-100 leading-relaxed">
+                            "Great recruiters waste 80% of their time on manual sourcing. Great candidates get lost in
+                            the noise. We believe that sourcing talent <strong class="font-semibold text-white">doesn't
+                                have to be manual.</strong> We build the connections, so you can build your career."
                         </p>
                     </div>
-                    <div id="viz-container"
-                        class="relative w-full h-[400px] max-w-4xl mx-auto bg-slate-800/20 border border-slate-700 rounded-2xl p-4">
-                        <div id="viz-agent"
-                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-28 h-28 bg-purple-500/20 border-2 border-purple-400 rounded-full shadow-2xl shadow-purple-500/20 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="text-purple-300 mb-1">
-                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                                <circle cx="12" cy="7" r="4" />
-                            </svg>
-                            <span id="agent-text"
-                                class="font-bold text-sm text-purple-300 transition-opacity duration-300">Agent</span>
+                </div>
+            </section>
+
+            <section id="elite-agents" class="bg-slate-900 pt-12 pb-16 sm:pt-16 sm:pb-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto">
+                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">What Makes Our Agents
+                            <span class="text-shimmer">Elite?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-slate-400 mb-12">
+                            We don't work with just any recruiter. We partner with a private, vetted network of industry
+                            experts who share our mission: to put talented people first.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                        <div
+                            class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                            <div
+                                class="flex items-center justify-center h-16 w-16 bg-indigo-500/10 border-2 border-indigo-500/30 rounded-full mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-indigo-400">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                                    <path d="m9 12 2 2 4-4" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Proven Experience</h3>
+                            <p class="text-slate-400">
+                                Every agent in our network is required to have a minimum of 5 years of senior-level
+                                recruiting experience in their specific industry, ensuring they understand the nuances
+                                of your field.
+                            </p>
                         </div>
-                        <div id="candidates-label" class="absolute top-4 text-slate-300 font-bold text-lg">Candidates
+
+                        <div
+                            class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                            <div
+                                class="flex items-center justify-center h-16 w-16 bg-purple-500/10 border-2 border-purple-500/30 rounded-full mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-purple-400">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Unrivaled Network Access</h3>
+                            <p class="text-slate-400">
+                                Our agents have deep, personal relationships with hiring managers. They bypass the ATS
+                                black hole and champion your story directly to the decision-makers.
+                            </p>
                         </div>
-                        <div id="companies-label" class="absolute top-4 text-slate-300 font-bold text-lg">Companies
+
+                        <div
+                            class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                            <div
+                                class="flex items-center justify-center h-16 w-16 bg-pink-500/10 border-2 border-pink-500/30 rounded-full mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-pink-400">
+                                    <path
+                                        d="M4.18 19.12a2 2 0 0 1-1.33-3.21l9.12-8.61a2 2 0 0 1 2.65 0l9.12 8.61a2 2 0 0 1-1.32 3.21H4.18Z" />
+                                    <path d="M12 22V8" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">A Candidate-First Mandate</h3>
+                            <p class="text-slate-400">
+                                As a Public Benefit Corporation, our agents are aligned with your success, not just
+                                filling a quota. They are your advocates, strategists, and partners in the job search.
+                            </p>
                         </div>
+
                     </div>
                 </div>
-                <script>
-                    document.addEventListener('DOMContentLoaded', () => {
-                        const vizContainer = document.getElementById('viz-container');
-                        const agentNode = document.getElementById('viz-agent');
-                        const agentText = document.getElementById('agent-text');
-                        const candidatesLabel = document.getElementById('candidates-label');
-                        const companiesLabel = document.getElementById('companies-label');
-                        if (!vizContainer || !agentNode || !agentText || !candidatesLabel || !companiesLabel) return;
-
-                        const candidates = [];
-                        const companies = [];
-                        const NUM_NODES = 5;
-                        let animationInterval;
-                        const containerPadding = 16; // 1rem from p-4
-                        const nodeHeight = 64; // 4rem from h-16
-
-                        const createNode = (type, index) => {
-                            const node = document.createElement('div');
-                            const size = 'w-16 h-16'; // 64px
-                            let text, colorClasses;
-
-                            if (type === 'candidate') {
-                                text = `Cand. #${index + 1}`;
-                                colorClasses = 'bg-indigo-500/20 border-indigo-400 text-indigo-300';
-                            } else { // company
-                                text = `Comp. #${index + 1}`;
-                                colorClasses = 'bg-pink-500/20 border-pink-400 text-pink-300';
-                            }
-
-                            node.className = `absolute flex items-center justify-center text-xs font-semibold rounded-full border-2 transition-all duration-300 ${size} ${colorClasses}`;
-                            node.textContent = text;
-                            vizContainer.appendChild(node);
-                            return node;
-                        };
-
-                        const positionNodes = () => {
-                            const containerRect = vizContainer.getBoundingClientRect();
-                            const horizontalPadding = 60;
-
-                            const topPadding = 90;    // Keep 90px to clear the label
-                            // *** FIX 2: Set bottomPadding to node radius (32) + container padding (16) ***
-                            const bottomPadding = (nodeHeight / 2) + containerPadding; // 32 + 16 = 48px
-
-                            // Usable height is between the top and bottom padding
-                            const availableHeight = containerRect.height - topPadding - bottomPadding;
-                            const spacing = availableHeight / (NUM_NODES - 1); // e.g., (400 - 90 - 48) / 4 = 262 / 4 = 65.5px
-                            // Since 65.5px > 64px (node height), they will not overlap.
-
-                            [candidates, companies].forEach((nodeArray, colIndex) => {
-                                nodeArray.forEach((node, rowIndex) => {
-                                    const x = colIndex === 0
-                                        ? horizontalPadding
-                                        : containerRect.width - node.offsetWidth - horizontalPadding;
-
-                                    // Calculate Y position for the node's *center*
-                                    const y = topPadding + (rowIndex * spacing);
-
-                                    node.style.left = `${x}px`;
-                                    node.style.top = `${y - node.offsetHeight / 2}px`; // Center node vertically
-                                });
-                            });
-
-                            // Dynamically position labels to be perfectly centered over their respective columns
-                            if (candidates.length > 0 && companies.length > 0) {
-                                // Wait for the first node to be positioned
-                                setTimeout(() => {
-                                    const firstCandidateNode = candidates[0];
-                                    const firstCompanyNode = companies[0];
-
-                                    if (firstCandidateNode && firstCompanyNode) {
-                                        const candidateColumnCenter = firstCandidateNode.offsetLeft + firstCandidateNode.offsetWidth / 2;
-                                        candidatesLabel.style.left = `${candidateColumnCenter}px`;
-                                        candidatesLabel.style.transform = 'translateX(-50%)';
-
-                                        const companyColumnCenter = firstCompanyNode.offsetLeft + firstCompanyNode.offsetWidth / 2;
-                                        companiesLabel.style.left = `${companyColumnCenter}px`;
-                                        companiesLabel.style.transform = 'translateX(-50%)';
-                                    }
-                                }, 0); // Use setTimeout to wait for layout pass
-                            }
-                        };
-
-                        for (let i = 0; i < NUM_NODES; i++) {
-                            candidates.push(createNode('candidate', i));
-                            companies.push(createNode('company', i));
-                        }
-
-                        // Use setTimeout to ensure nodes are rendered before calculating positions
-                        setTimeout(positionNodes, 0);
-                        window.addEventListener('resize', positionNodes);
-
-                        function drawLine(startElem, endElem, color) {
-                            const line = document.createElement('div');
-                            line.style.position = 'absolute';
-                            line.style.height = '2px';
-                            line.style.backgroundColor = color;
-                            line.style.transformOrigin = '0 0';
-                            line.style.opacity = '0';
-                            line.style.transition = 'opacity 0.5s ease-in-out, width 0.5s ease-in-out';
-                            line.style.zIndex = '-1';
-                            vizContainer.appendChild(line);
-
-                            const startRect = startElem.getBoundingClientRect();
-                            const endRect = endElem.getBoundingClientRect();
-                            const containerRect = vizContainer.getBoundingClientRect();
-
-                            const startX = startRect.left + startRect.width / 2 - containerRect.left;
-                            const startY = startRect.top + startRect.height / 2 - containerRect.top;
-                            const endX = endRect.left + endRect.width / 2 - containerRect.left;
-                            const endY = endRect.top + endRect.height / 2 - containerRect.top;
-
-                            const distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
-                            const angle = Math.atan2(endY - startY, endX - startX) * 180 / Math.PI;
-
-                            line.style.left = `${startX}px`;
-                            line.style.top = `${startY}px`;
-                            line.style.width = `0px`;
-                            line.style.transform = `rotate(${angle}deg)`;
-
-                            setTimeout(() => {
-                                line.style.opacity = '0.7'; // Use 0.7 for a slightly softer look
-                                line.style.width = `${distance}px`;
-                            }, 10);
-
-                            return line;
-                        }
-
-                        function runAnimation() {
-                            const randomCandidate = candidates[Math.floor(Math.random() * candidates.length)];
-                            const randomCompany = companies[Math.floor(Math.random() * companies.length)];
-
-                            // Agent starts "advocating"
-                            agentText.textContent = 'Advocating...';
-                            agentNode.classList.add('scale-110', 'animate-pulse');
-
-                            // Highlight candidate
-                            randomCandidate.classList.add('scale-110', 'shadow-lg', 'shadow-indigo-500/50');
-
-                            let line1, line2;
-
-                            // After a delay, draw first line and highlight company
-                            setTimeout(() => {
-                                line1 = drawLine(randomCandidate, agentNode, '#818cf8'); // indigo-400
-                                randomCompany.classList.add('scale-110', 'shadow-lg', 'shadow-pink-500/50');
-                            }, 500);
-
-                            // After another delay, draw second line
-                            setTimeout(() => {
-                                line2 = drawLine(agentNode, randomCompany, '#f472b6'); // pink-400
-                            }, 1000);
-
-                            setTimeout(() => {
-                                // Cleanup
-                                if (line1) line1.style.opacity = '0';
-                                if (line2) line2.style.opacity = '0';
-                                agentText.textContent = 'Agent';
-                                agentNode.classList.remove('scale-110', 'animate-pulse');
-                                randomCandidate.classList.remove('scale-110', 'shadow-lg', 'shadow-indigo-500/50');
-                                randomCompany.classList.remove('scale-110', 'shadow-lg', 'shadow-pink-500/50');
-                                setTimeout(() => {
-                                    if (line1) line1.remove();
-                                    if (line2) line2.remove();
-                                }, 500);
-                            }, 2500);
-                        }
-
-                        const vizObserver = new IntersectionObserver((entries) => {
-                            entries.forEach(entry => {
-                                if (entry.isIntersecting) {
-                                    if (!animationInterval) {
-                                        runAnimation(); // Run once immediately
-                                        animationInterval = setInterval(runAnimation, 3500);
-                                    }
-                                } else {
-                                    clearInterval(animationInterval);
-                                    animationInterval = null;
-                                }
-                            });
-                        }, { threshold: 0.5 });
-
-                        vizObserver.observe(vizContainer);
-                    });
-                </script>
             </section>
 
 
@@ -568,7 +446,8 @@
                 <div class="container mx-auto px-6">
                     <div class="text-center max-w-3xl mx-auto">
                         <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">The Fundamentally
-                            <br><span class="text-shimmer">Different Approach</span></h2>
+                            <br><span class="text-shimmer">Different Approach</span>
+                        </h2>
                         <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-16">
                             Traditional job sites make money when companies post jobs. We make money <span
                                 class="text-white font-semibold">only when you actually get hired.</span> This core
@@ -790,7 +669,8 @@
                             </div>
                         </div>
                         <button type="submit"
-                            class="w-full bg-white text-emerald-700 font-bold py-4 px-6 rounded-full !mt-6 text-lg hover:bg-slate-100 hover:scale-105 transition-all duration-300 transform">Go to Private Link</button>
+                            class="w-full bg-white text-emerald-700 font-bold py-4 px-6 rounded-full !mt-6 text-lg hover:bg-slate-100 hover:scale-105 transition-all duration-300 transform">Go
+                            to Private Link</button>
                     </form>
                 </div>
 
@@ -1034,6 +914,11 @@
                 const formData = new FormData();
                 formData.append('section_reached', sectionId);
                 formData.append('page_url', window.location.href);
+
+                // START: New Device Type Logic
+                const deviceType = window.innerWidth < 768 ? 'Mobile' : 'Desktop';
+                formData.append('device_type', deviceType);
+                // END: New Device Type Logic
 
                 // navigator.sendBeacon is perfect for this kind of non-critical,
                 // fire-and-forget analytics request.
