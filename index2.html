@@ -103,6 +103,11 @@
             <p class="reveal-item delay-2 text-xl md:text-2xl text-slate-300 font-light leading-relaxed">
                 Your <b>ultimate agent</b>. Their only job is to understand your story, perfect your narrative, and ensure you're represented with the respect you deserve. <br><br>Their loyalty is exclusively to you.
             </p>
+            <div class="reveal-item delay-3 absolute bottom-12 left-1/2 -translate-x-1/2 text-slate-400 animate-bounce">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
         </div>
     </section>
 
@@ -122,6 +127,11 @@
             <p class="reveal-item delay-2 text-xl md:text-2xl text-slate-300 font-light leading-relaxed">
                 The <b>tactical agent</b>. A market specialist with deep client relationships. Their job is to know the opportunity, the hiring manager, and the culture inside and out. <br><br>Their loyalty is to the company.
             </p>
+            <div class="reveal-item delay-3 absolute bottom-12 left-1/2 -translate-x-1/2 text-slate-400 animate-bounce">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
         </div>
     </section>
 
@@ -131,10 +141,34 @@
             <h2 class="reveal-item text-5xl md:text-6xl font-black tracking-tighter text-white mb-6">
                 Most people only get one.<br>You deserve <span class="text-pink-500">both</span>.
             </h2>
-            <p class="reveal-item delay-1 text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-10">
+            <p class="reveal-item delay-1 text-xl md:text-2xl text-slate-300 font-light leading-relaxed">
                 SpotOrigin is your ultimate agent. We find and partner with the best tactical agents in the market, building a strategic alliance around your success. You enter the arena with a professional team at your back.
             </p>
-            <div class="reveal-item delay-2">
+            <div class="reveal-item delay-2 absolute bottom-12 left-1/2 -translate-x-1/2 text-slate-400 animate-bounce">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: The Origin Point & CTA -->
+    <section id="section-5" class="scroll-section">
+        <div class="text-center max-w-4xl mx-auto px-6">
+            <div class="reveal-item flex justify-center mb-8 icon-container">
+                 <div class="flex items-center justify-center h-24 w-24 bg-slate-800 border-2 border-slate-600 rounded-full shadow-lg shadow-slate-500/10">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-300">
+                        <circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                </div>
+            </div>
+            <h2 class="reveal-item delay-1 text-5xl md:text-6xl font-black tracking-tighter text-white mb-6">
+                It all starts with <span class="text-cyan-400">your story</span>.
+            </h2>
+            <p class="reveal-item delay-2 text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-10">
+               This entire alliance is built around you. The process begins when you privately share your profile. This allows your ultimate agent to understand your narrative and begin building your team.
+            </p>
+             <div class="reveal-item delay-3">
                 <a href="https://spotorigin.com/resume" target="_blank" class="bg-white text-slate-900 font-bold px-10 py-4 rounded-full text-lg shadow-2xl shadow-white/20 hover:bg-slate-200 transform hover:scale-105 transition-all duration-300">
                     Get Your Team
                 </a>
@@ -214,14 +248,11 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                    } else {
-                        // Optional: remove class to re-animate on scroll up
-                        // entry.target.classList.remove('is-visible');
                     }
                 });
             }, {
                 root: null,
-                threshold: 0.4, // Trigger when 40% of the element is visible
+                threshold: 0.4, 
             });
             sectionsForAnimation.forEach(section => {
                 animationObserver.observe(section);
