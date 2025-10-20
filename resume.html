@@ -71,6 +71,26 @@
                         </select>
                     </div>
                     <div>
+                        <label for="recruiter-specialty" class="block text-sm font-medium text-slate-300 mb-1">Primary Specialty</label>
+                        <select id="recruiter-specialty" name="recruiter_specialty" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white appearance-none bg-no-repeat bg-right pr-8" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%2394a3b8%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e'); background-position: right 0.5rem center; background-size: 1.5em 1.5em;">
+                            <option value="">Select your main field</option>
+                            <option value="Software Engineering">Software Engineering</option>
+                            <option value="Product Management">Product Management</option>
+                            <option value="Data Science & Analytics">Data Science & Analytics</option>
+                            <option value="AI & Machine Learning">AI & Machine Learning</option>
+                            <option value="Design & UX/UI">Design & UX/UI</option>
+                            <option value="Sales & Business Development">Sales & Business Development</option>
+                            <option value="Marketing & Communications">Marketing & Communications</option>
+                            <option value="Finance & Accounting">Finance & Accounting</option>
+                            <option value="Legal & Compliance">Legal & Compliance</option>
+                            <option value="Human Resources & Talent">Human Resources & Talent</option>
+                            <option value="Operations & Supply Chain">Operations & Supply Chain</option>
+                            <option value="Cybersecurity">Cybersecurity</option>
+                            <option value="Executive Leadership">Executive Leadership (C-Suite, VP)</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
                         <label for="location-input" class="block text-sm font-medium text-slate-300 mb-1">Desired Locations (e.g., Remote, New York, London)</label>
                         <input type="text" id="location-input" placeholder="Type a location and press Enter..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white placeholder-slate-500">
                         <div id="locations-container" class="flex flex-wrap gap-2 mt-3"></div>
@@ -79,6 +99,10 @@
                     <div>
                         <label for="last-compensation" class="block text-sm font-medium text-slate-300 mb-1">Last Compensation (Optional)</label>
                         <input type="text" name="last_compensation" id="last-compensation" placeholder="e.g., $120,000/year or $75/hour" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white placeholder-slate-500">
+                    </div>
+                    <div>
+                        <label for="desired-compensation" class="block text-sm font-medium text-slate-300 mb-1">Desired Compensation (Optional)</label>
+                        <input type="text" name="desired_compensation" id="desired-compensation" placeholder="e.g., $150,000/year or $90/hour" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white placeholder-slate-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-300 mb-2">Upload Your Resume (Required)</label>
@@ -93,6 +117,24 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- START: New "Happy" Checkbox Section -->
+                    <div class="pt-2 space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="happy-checkbox" name="is_happy" type="checkbox" checked class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="happy-checkbox" class="text-slate-300">I'm happy in my current role and not actively looking.</label>
+                            </div>
+                        </div>
+                        <div id="unhappy-details-container" class="hidden">
+                             <label for="unhappy-details" class="block text-sm font-medium text-slate-300 mb-1">What's motivating you to look for a new role? (Optional)</label>
+                             <textarea id="unhappy-details" name="unhappy_details" rows="3" placeholder="e.g., Seeking better compensation, looking for a leadership role, company culture..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white placeholder-slate-500"></textarea>
+                        </div>
+                    </div>
+                    <!-- END: New "Happy" Checkbox Section -->
+
                     <div class="flex items-start pt-2">
                         <div class="flex items-center h-5">
                             <input id="terms-desktop" name="terms-candidate" type="checkbox" required class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded">
@@ -110,7 +152,6 @@
 
     <script>
         // --- SCRIPT CANARY ---
-        // This MUST show up in your console. If not, the file isn't updating.
         console.log("SpotOrigin Debug: resume.html SCRIPT BLOCK IS RUNNING.");
 
         // We wrap all our logic in a function
@@ -122,7 +163,6 @@
             let uploadedFile = null;
             const urlParams = new URLSearchParams(window.location.search);
             
-            // --- DEBUGGING: Check URL ---
             console.log("SpotOrigin Debug: runLogic() fired. URL params are:", window.location.search);
 
             // --- REFERRAL CODE LOGIC ---
@@ -132,25 +172,13 @@
                 if (referrerDesktopInput) referrerDesktopInput.value = referrer;
             }
 
-            // --- EMAIL PREFILL LOGIC (WITH DEBUGGING) ---
+            // --- EMAIL PREFILL LOGIC ---
             const email = urlParams.get('email');
             const emailDesktopInput = document.getElementById('email-desktop');
-
-            console.log("SpotOrigin Debug: Found email in URL:", email); 
-
             if (email && emailDesktopInput) {
-                console.log("SpotOrigin Debug: Found email AND input field. Setting value.");
                 emailDesktopInput.value = email;
-            } else {
-                if (!email) {
-                    console.log("SpotOrigin Debug: 'email' param not found in URL.");
-                }
-                if (!emailDesktopInput) {
-                    console.log("SpotOrigin Debug: 'email-desktop' input field not found in DOM.");
-                }
             }
-            // --- END EMAIL LOGIC ---
-
+            
             // --- LOCATION TAGS LOGIC ---
             const locationInput = document.getElementById('location-input');
             const locationsContainer = document.getElementById('locations-container');
@@ -206,7 +234,21 @@
                 locationInput.addEventListener('blur', addLocation);
             }
             
-            // --- ROBUST DRAG-AND-DROP & FILE HANDLING ---
+            // --- "HAPPY" CHECKBOX LOGIC ---
+            const happyCheckbox = document.getElementById('happy-checkbox');
+            const unhappyDetailsContainer = document.getElementById('unhappy-details-container');
+
+            if (happyCheckbox && unhappyDetailsContainer) {
+                happyCheckbox.addEventListener('change', () => {
+                    if (happyCheckbox.checked) {
+                        unhappyDetailsContainer.classList.add('hidden');
+                    } else {
+                        unhappyDetailsContainer.classList.remove('hidden');
+                    }
+                });
+            }
+
+            // --- DRAG-AND-DROP & FILE HANDLING ---
             const dropzone = document.getElementById('resume-dropzone');
             const fileInput = document.getElementById('resume-input');
             const fileInfo = document.getElementById('file-info');
@@ -306,11 +348,9 @@
 
         // --- BULLETPROOF DOM READY CHECK ---
         if (document.readyState === 'loading') {
-            // Loading hasn't finished yet
             console.log("SpotOrigin Debug: DOM is loading, adding listener.");
             document.addEventListener('DOMContentLoaded', runLogic);
         } else {
-            // `DOMContentLoaded` has already fired
             console.log("SpotOrigin Debug: DOM is already ready, running logic now.");
             runLogic();
         }
@@ -318,3 +358,4 @@
 
 </body>
 </html>
+

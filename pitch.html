@@ -404,7 +404,7 @@
                     <p class="subtitle mt-6">A New Model for Career Advocacy</p>
                 </div>
             </div>
-            <div class="slide-number">1 / 7</div>
+            <div class="slide-number">1 / 8</div>
         </section>
 
         <section id="slide-2" class="slide slide-content-layout">
@@ -430,7 +430,7 @@
                 </div>
             </div>
             <div class="footer-note">1. The Problem</div>
-            <div class="slide-number">2 / 7</div>
+            <div class="slide-number">2 / 8</div>
         </section>
 
         <section id="slide-3" class="slide slide-content-layout">
@@ -450,7 +450,7 @@
                 </div>
             </div>
             <div class="footer-note">2. The Innovation & Outcome</div>
-            <div class="slide-number">3 / 7</div>
+            <div class="slide-number">3 / 8</div>
         </section>
 
         <section id="slide-4" class="slide slide-content-layout">
@@ -489,10 +489,36 @@
                 </div>
             </div>
             <div class="footer-note">3. The Model</div>
-            <div class="slide-number">4 / 7</div>
+            <div class="slide-number">4 / 8</div>
         </section>
 
         <section id="slide-5" class="slide slide-content-layout">
+             <h2 class="reveal-item">Our Unscalable Moat: <span class="text-yellow-400 text-shimmer">Human Judgment.</span></h2>
+            <div class="slide-body-container">
+                <div class="slide-content">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" data-stagger>
+                        <div class="glass-card reveal-item">
+                            <h3 class="text-3xl font-bold mb-4">The Machine</h3>
+                            <p class="text-lg md:text-xl text-slate-300 leading-relaxed">We will automate outreach, partner matching, workflow management, and every other repeatable step. Our founder's background is in building these exact kinds of global-scale systems.</p>
+                        </div>
+                        <div class="glass-card reveal-item bg-yellow-900/10 border-yellow-500/30">
+                            <h3 class="text-3xl font-bold mb-4 text-yellow-300">The Art</h3>
+                            <p class="text-lg md:text-xl text-slate-300 leading-relaxed">The one function that will <strong class="text-white">always</strong> remain manual is the 5 minutes of a focused human scanning a resume to find the "golden" narrative. This judgment is our quality gate.</p>
+                            <div class="mt-6 pt-6 border-t border-yellow-500/30 text-center">
+                                <p class="text-slate-300 text-base md:text-lg">This "unscalable" work is our most leveraged investment:</p>
+                                <p class="text-5xl md:text-6xl font-black text-white mt-2">~75x</p>
+                                <p class="text-yellow-300 text-base md:text-lg">Return on Curation Labor Spend</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-note">4. The Moat</div>
+            <div class="slide-number">5 / 8</div>
+        </section>
+
+
+        <section id="slide-6" class="slide slide-content-layout">
             <h2 class="reveal-item">The Market is a <span class="text-sky-400 text-shimmer">Trillion-Dollar</span> Opportunity.</h2>
             <div class="slide-body-container">
                 <div class="slide-content text-center max-w-4xl">
@@ -503,11 +529,11 @@
                     <p class="mt-8 md:mt-10 text-xl md:text-2xl text-slate-400 leading-relaxed reveal-item" style="transition-delay: 0.3s;">Our "all-market TAM by definition" model is designed to plug into any part of this massive ecosystem, across any industry or seniority level.</p>
                 </div>
             </div>
-            <div class="footer-note">4. The Market</div>
-            <div class="slide-number">5 / 7</div>
+            <div class="footer-note">5. The Market</div>
+            <div class="slide-number">6 / 8</div>
         </section>
         
-        <section id="slide-6" class="slide slide-content-layout">
+        <section id="slide-7" class="slide slide-content-layout">
             <h2 class="reveal-item">The Team is <span class="text-fuchsia-400 text-shimmer">Built to Win.</span></h2>
             <div class="slide-body-container">
                 <div class="slide-content">
@@ -525,11 +551,11 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-note">5. The Team</div>
-            <div class="slide-number">6 / 7</div>
+            <div class="footer-note">6. The Team</div>
+            <div class="slide-number">7 / 8</div>
         </section>
 
-        <section id="slide-7" class="slide">
+        <section id="slide-8" class="slide">
             <div class="slide-content text-center">
                 <h1 class="reveal-item text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-500">Join Us.</h1>
                 <div class="mt-8 md:mt-12 glass-card max-w-3xl mx-auto reveal-item" style="transition-delay: 0.2s;">
@@ -545,8 +571,8 @@
                     <p class="text-xl md:text-2xl mt-2">leadership@spotorigin.com</p>
                 </div>
             </div>
-            <div class="footer-note">6. The Ask</div>
-            <div class="slide-number">7 / 7</div>
+            <div class="footer-note">7. The Ask</div>
+            <div class="slide-number">8 / 8</div>
         </section>
 
 
@@ -564,10 +590,8 @@
             const canvas = document.getElementById('orb-canvas');
             let currentSlideIndex = 0;
 
-            // Define the Tailwind 'md' breakpoint for JS use
             const MD_BREAKPOINT = 768;
 
-            // --- 1. Automated Staggering Setup ---
             const setupStaggering = () => {
                 document.querySelectorAll('[data-stagger]').forEach(container => {
                     const items = container.querySelectorAll('.reveal-item');
@@ -579,7 +603,6 @@
                 });
             };
 
-            // --- 2. Animated Counters ---
             const resetCounters = (slide) => {
                 slide.querySelectorAll('.counter').forEach(counter => {
                     counter.classList.remove('animated');
@@ -630,7 +653,6 @@
                 });
             };
 
-            // --- 3. Slide State Management & Parallax ---
             const updateSlideStates = (newIndex) => {
                 if (newIndex < 0 || newIndex >= slides.length) return;
 
@@ -661,7 +683,6 @@
                 }
             };
 
-            // --- 4. Scroll Detection (Intersection Observer) ---
             const observer = new IntersectionObserver((entries) => {
                 let mostVisibleIndex = currentSlideIndex;
                 let highestVisibility = 0;
@@ -678,7 +699,6 @@
             
             slides.forEach(slide => observer.observe(slide));
 
-            // --- 5. Keyboard Navigation ---
             window.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || (e.code === 'Space' && !e.shiftKey)) {
                     e.preventDefault();
@@ -689,7 +709,6 @@
                 }
             });
 
-            // --- 6. Dynamic Orb Background & SVG Handling ---
             const ctx = canvas.getContext('2d');
             const initializeSVGLines = () => {
                 const isMobile = window.innerWidth < MD_BREAKPOINT;
@@ -809,4 +828,3 @@
     </script>
 </body>
 </html>
-
