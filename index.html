@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,60 +9,236 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: #F8FAFC; }
-        .animated-gradient { background: linear-gradient(135deg, #6366F1, #8B5CF6, #EC4899, #F59E0B); background-size: 400% 400%; animation: gradientShift 20s ease infinite; }
-        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-        .gradient-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: float 20s ease-in-out infinite; }
-        .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #6366F1 0%, transparent 70%); top: -10%; left: -10%; animation-delay: 0s; }
-        .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, #EC4899 0%, transparent 70%); bottom: -10%; right: -10%; animation-delay: 7s; }
-        .orb-3 { width: 350px; height: 350px; background: radial-gradient(circle, #8B5CF6 0%, transparent 70%); top: 40%; right: 20%; animation-delay: 14s; }
-        @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(30px, -30px) scale(1.1); } 66% { transform: translate(-20px, 20px) scale(0.9); } }
-        .text-reveal { opacity: 0; transform: translateY(30px); animation: revealText 0.8s ease-out forwards; }
-        .text-reveal-1 { animation-delay: 0.2s; } .text-reveal-2 { animation-delay: 0.4s; } .text-reveal-3 { animation-delay: 0.6s; } .text-reveal-4 { animation-delay: 0.8s; }
-        @keyframes revealText { to { opacity: 1; transform: translateY(0); } }
-        .btn-primary { position: relative; overflow: hidden; transition: all 0.3s ease; }
-        .btn-primary::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: rgba(99, 102, 241, 0.3); transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s; }
-        .btn-primary:hover::before { width: 300px; height: 300px; }
-        .btn-secondary { position: relative; overflow: hidden; background: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.1) 50%); background-size: 200% 100%; background-position: left; transition: all 0.4s ease; }
-        .btn-secondary:hover { background-position: right; }
-        .badge-pulse { animation: pulse 2s ease-in-out infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.9; } }
-        .text-shimmer {
-            background: linear-gradient(90deg, #fff 0%, #fff 40%, #a5b4fc 50%, #fff 60%, #fff 100%);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A;
+            color: #F8FAFC;
+        }
+
+        .animated-gradient {
+            background: linear-gradient(135deg, #10b981, #34d399, #22c55e, #14b8a6);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #10b981 0%, transparent 70%);
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #22c55e 0%, transparent 70%);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: 7s;
+        }
+
+        .orb-3 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #34d399 0%, transparent 70%);
+            top: 40%;
+            right: 20%;
+            animation-delay: 14s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: revealText 0.8s ease-out forwards;
+        }
+
+        .text-reveal-1 {
+            animation-delay: 0.2s;
+        }
+
+        .text-reveal-2 {
+            animation-delay: 0.4s;
+        }
+
+        .text-reveal-3 {
+            animation-delay: 0.6s;
+        }
+
+        .text-reveal-4 {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes revealText {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(16, 185, 129, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-secondary {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.1) 50%);
             background-size: 200% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s linear infinite;
-            transform: translateZ(0); /* <-- ADD THIS LINE */
+            background-position: left;
+            transition: all 0.4s ease;
         }
-        @keyframes shimmer { 
-            /* 0% { background-position: 0 0; }  <-- REMOVE */
-            /* 100% { background-position: -200% 0; } <-- REMOVE */
-            from { background-position: 200% 0; } /* <-- ADD THIS */
-            to { background-position: -200% 0; }   /* <-- ADD THIS */
+
+        .btn-secondary:hover {
+            background-position: right;
         }
+
+        .badge-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
         .grid-pattern {
             background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             animation: gridMove 20s linear infinite;
-            transform: translateZ(0); /* <-- ADD THIS LINE */
+            transform: translateZ(0);
+            /* <-- ADD THIS LINE */
         }
-        @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
-        .scroll-reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
-        .modal-backdrop { transition: opacity 0.3s ease-in-out; } .modal-content { transition: transform 0.3s ease-in-out; }
-        .drag-over { border-color: #6366F1; background-color: #1E293B; }
+
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .modal-backdrop {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal-content {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .drag-over {
+            border-color: #6366F1;
+            background-color: #1E293B;
+        }
     </style>
 </head>
+
 <body class="antialiased overflow-x-hidden">
 
-    <header class="absolute top-0 left-0 right-0 z-20">
-        <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tighter text-reveal text-reveal-1">SpotOrigin</div>
+    <header
+        class="fixed top-0 left-0 right-0 z-50 w-full bg-slate-900/70 backdrop-blur-md border-b border-slate-800 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tighter text-white">SpotOrigin</a>
+
         </nav>
+    </header>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-800/95 backdrop-blur-lg border-t border-slate-700">
+        <div class="flex flex-col space-y-4 px-6 py-5">
+            <a href="#features" class="block text-slate-200 hover:text-white py-2">Features</a>
+            <a href="#how-it-works" class="block text-slate-200 hover:text-white py-2">How It Works</a>
+            <button data-modal-target="agent-modal" class="block text-left text-slate-200 hover:text-white py-2">For
+                Agents</button>
+            <button data-modal-target="company-modal" class="block text-left text-slate-200 hover:text-white py-2">For
+                Companies</button>
+            <a href="#final-cta"
+                class="block w-full text-center bg-white text-emerald-700 font-bold px-5 py-3 rounded-full text-sm shadow-lg mt-4">
+                Create Free Profile
+            </a>
+        </div>
+    </div>
     </header>
 
     <main>
@@ -70,68 +247,135 @@
             <div class="gradient-orb orb-2"></div>
             <div class="gradient-orb orb-3"></div>
             <div class="absolute inset-0 grid-pattern"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 via-30% to-slate-900 to-100%"></div>
-        
-            <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 via-30% to-slate-900 to-100%">
+            </div>
+
+            <section id="hero" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
                 <div class="relative z-10 text-center px-4 py-20 max-w-5xl mx-auto">
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 text-reveal text-reveal-1 leading-tight">
-                        Let elite agents <span class="text-shimmer">compete</span> to find you.
+                    <h1
+                        class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 text-reveal text-reveal-1 leading-tight">
+                        Stop looking for work. <br>
+                        Let elite agents <span class="text-emerald-300">look for you.</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-slate-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed text-reveal text-reveal-2">
-                        Your hands-off job search is here. Stop wasting your experience on applications that go into a black hole. Create one <strong>private profile</strong> and let elite, vetted agents compete to <strong>champion your story directly to hiring managers</strong>—bringing top opportunities straight to you.
+                    <p
+                        class="text-lg md:text-xl text-slate-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed text-reveal text-reveal-2">
+                        Your hands-free job search is <u>here</u>. Stop wasting your experience on applications that go
+                        into a black hole. Create one <strong>private profile</strong> and let elite, vetted agents
+                        compete to <strong>champion your story directly to hiring managers</strong>—bringing top
+                        opportunities straight to you.
                     </p>
-                    
-                    <form action="https://formspree.io/f/xanpaeoo" method="POST" class="max-w-xl mx-auto text-reveal text-reveal-3">
-                        <input type="hidden" name="_autoresponse" value="The agents are waiting... Here's your private SpotOrigin link.">
-                        <input type="hidden" id="referrer-hero" name="referrer_email"> <div class="flex flex-col sm:flex-row gap-4">
+
+                    <form id="hero-form" action="https://formspree.io/f/xanpaeoo" method="POST"
+                        class="max-w-xl mx-auto text-reveal text-reveal-3">
+                        <input type="hidden" name="_autoresponse"
+                            value="The agents are waiting... Here's your private SpotOrigin link.">
+                        <input type="hidden" id="referrer-hero" name="referrer_email">
+
+                        <div class="flex flex-col sm:flex-row gap-4">
                             <label for="email-hero" class="sr-only">Email Address</label>
-                            <input type="email" name="email" id="email-hero" required placeholder="Enter your email address..." class="flex-grow w-full bg-white/10 border-2 border-white/30 rounded-full px-6 py-4 text-white placeholder-slate-300 text-lg focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 outline-none backdrop-blur-sm">
-                            
-                            <button type="submit" class="btn-primary bg-white text-indigo-600 font-bold px-10 py-4 rounded-full text-lg shadow-2xl hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 relative z-10 sm:w-auto w-full">
-                                <span class="relative z-10">Create My Free Private Profile</span>
+                            <input type="email" name="email" id="email-hero" required
+                                placeholder="Enter your email address..."
+                                class="flex-grow w-full bg-white/10 border-2 border-white/30 rounded-full px-6 py-4 text-white placeholder-slate-300 text-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none backdrop-blur-sm">
+
+                            <button type="submit"
+                                class="btn-primary bg-white text-emerald-700 font-bold px-10 py-4 rounded-full text-lg shadow-2xl hover:shadow-emerald-500/50 transform hover:scale-105 transition-all duration-300 relative z-10 sm:w-auto w-full">
+                                <span class="relative z-10">Start My Free Private Profile</span>
                             </button>
                         </div>
-                        
-                        </form>
-            
-                    <div class="mt-12 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 text-slate-200 text-sm text-reveal text-reveal-4">
+
+                        <div class="mt-6 flex items-start justify-center">
+                            <div class="flex items-center h-5">
+                                <input id="terms-hero" name="terms-hero" type="checkbox" required
+                                    class="h-4 w-4 text-emerald-600 border-white/30 bg-white/10 rounded focus:ring-emerald-500 focus:ring-2">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="terms-hero" class="text-slate-200">I agree to the
+                                    <a href="terms.html" target="_blank"
+                                        class="font-medium text-white underline hover:text-emerald-300">Terms of
+                                        Service</a> and
+                                    <a href="privacy.html" target="_blank"
+                                        class="font-medium text-white underline hover:text-emerald-300">Privacy
+                                        Policy</a>.
+                                </label>
+                            </div>
+                        </div>
+
+                        <p class="mt-6 text-sm text-slate-200">
+                            At a minimum, you'll get expert resume feedback.
+                        </p>
+
+                    </form>
+
+                    <div
+                        class="mt-12 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 text-slate-200 text-sm text-reveal text-reveal-4">
                         <div class="flex items-start sm:items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span class_x="text-left"><span class="font-semibold text-white">100% Private:</span> Your profile is hidden. You approve who sees it.</span>
+                            <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class_x="text-left"><span class="font-semibold text-white">100% Private:</span> Your
+                                profile is hidden. You approve who sees it.</span>
                         </div>
                         <div class="flex items-start sm:items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span class_x="text-left"><span class="font-semibold text-white">Elite Agents Only:</span> No spam. Only vetted recruiters can connect.</span>
+                            <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class_x="text-left"><span class="font-semibold text-white">Elite Agents Only:</span>
+                                No spam. Only approved recruiters can connect.</span>
                         </div>
                         <div class="flex items-start sm:items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span class_x="text-left"><span class="font-semibold text-white">Total Control:</span> Pause your profile, or mute agents anytime. Always free.</span>
+                            <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-1 sm:mt-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class_x="text-left"><span class="font-semibold text-white">Total Control:</span> Pause
+                                your profile, or mute agents anytime. Always free.</span>
                         </div>
                     </div>
                 </div>
+
                 <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
                 </div>
             </section>
 
-            <section id="visualization" class="py-20 sm:py-32 bg-slate-900 overflow-hidden">
+            <section id="visualization" class="pt-10 pb-20 sm:pt-16 sm:pb-32 bg-slate-900 overflow-hidden">
                 <div class="container mx-auto px-6 relative z-10">
                     <div class="text-center max-w-3xl mx-auto">
-                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">These Agents Are Your<br><span class="text-shimmer">Tireless Advocates</span></h2>
+                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">These Agents Are
+                            Your<br><span class="text-shimmer">Tireless Advocates</span></h2>
                         <p class="text-lg md:text-xl text-slate-400 mb-16">
-                            Think of them as the human override for a broken system. They don't just match keywords; they champion your story to hiring managers.
+                            Think of them as the human override for a broken system. They don't just match keywords;
+                            they champion your story to hiring managers.
                         </p>
                     </div>
-                    <div id="viz-container" class="relative w-full h-[400px] max-w-4xl mx-auto bg-slate-800/20 border border-slate-700 rounded-2xl p-4">
-                        <div id="viz-agent" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-28 h-28 bg-purple-500/20 border-2 border-purple-400 rounded-full shadow-2xl shadow-purple-500/20 transition-transform duration-300">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-300 mb-1">
-                                 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-                                 <circle cx="12" cy="7" r="4"/>
-                             </svg>
-                            <span id="agent-text" class="font-bold text-sm text-purple-300 transition-opacity duration-300">Agent</span>
+                    <div id="viz-container"
+                        class="relative w-full h-[400px] max-w-4xl mx-auto bg-slate-800/20 border border-slate-700 rounded-2xl p-4">
+                        <div id="viz-agent"
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-28 h-28 bg-purple-500/20 border-2 border-purple-400 rounded-full shadow-2xl shadow-purple-500/20 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-purple-300 mb-1">
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                            <span id="agent-text"
+                                class="font-bold text-sm text-purple-300 transition-opacity duration-300">Agent</span>
                         </div>
-                        <div id="candidates-label" class="absolute top-4 text-slate-300 font-bold text-lg">Candidates</div>
-                        <div id="companies-label" class="absolute top-4 text-slate-300 font-bold text-lg">Companies</div>
+                        <div id="candidates-label" class="absolute top-4 text-slate-300 font-bold text-lg">Candidates
+                        </div>
+                        <div id="companies-label" class="absolute top-4 text-slate-300 font-bold text-lg">Companies
+                        </div>
                     </div>
                 </div>
                 <script>
@@ -142,19 +386,19 @@
                         const candidatesLabel = document.getElementById('candidates-label');
                         const companiesLabel = document.getElementById('companies-label');
                         if (!vizContainer || !agentNode || !agentText || !candidatesLabel || !companiesLabel) return;
-            
+
                         const candidates = [];
                         const companies = [];
                         const NUM_NODES = 5;
                         let animationInterval;
                         const containerPadding = 16; // 1rem from p-4
                         const nodeHeight = 64; // 4rem from h-16
-            
+
                         const createNode = (type, index) => {
                             const node = document.createElement('div');
                             const size = 'w-16 h-16'; // 64px
                             let text, colorClasses;
-            
+
                             if (type === 'candidate') {
                                 text = `Cand. #${index + 1}`;
                                 colorClasses = 'bg-indigo-500/20 border-indigo-400 text-indigo-300';
@@ -162,52 +406,52 @@
                                 text = `Comp. #${index + 1}`;
                                 colorClasses = 'bg-pink-500/20 border-pink-400 text-pink-300';
                             }
-                            
+
                             node.className = `absolute flex items-center justify-center text-xs font-semibold rounded-full border-2 transition-all duration-300 ${size} ${colorClasses}`;
                             node.textContent = text;
                             vizContainer.appendChild(node);
                             return node;
                         };
-            
+
                         const positionNodes = () => {
                             const containerRect = vizContainer.getBoundingClientRect();
                             const horizontalPadding = 60;
-                            
+
                             const topPadding = 90;    // Keep 90px to clear the label
                             // *** FIX 2: Set bottomPadding to node radius (32) + container padding (16) ***
                             const bottomPadding = (nodeHeight / 2) + containerPadding; // 32 + 16 = 48px
-                            
+
                             // Usable height is between the top and bottom padding
                             const availableHeight = containerRect.height - topPadding - bottomPadding;
                             const spacing = availableHeight / (NUM_NODES - 1); // e.g., (400 - 90 - 48) / 4 = 262 / 4 = 65.5px
                             // Since 65.5px > 64px (node height), they will not overlap.
-            
+
                             [candidates, companies].forEach((nodeArray, colIndex) => {
                                 nodeArray.forEach((node, rowIndex) => {
-                                    const x = colIndex === 0 
-                                        ? horizontalPadding 
+                                    const x = colIndex === 0
+                                        ? horizontalPadding
                                         : containerRect.width - node.offsetWidth - horizontalPadding;
-                                    
+
                                     // Calculate Y position for the node's *center*
                                     const y = topPadding + (rowIndex * spacing);
-                                    
+
                                     node.style.left = `${x}px`;
                                     node.style.top = `${y - node.offsetHeight / 2}px`; // Center node vertically
                                 });
                             });
-            
+
                             // Dynamically position labels to be perfectly centered over their respective columns
                             if (candidates.length > 0 && companies.length > 0) {
                                 // Wait for the first node to be positioned
                                 setTimeout(() => {
                                     const firstCandidateNode = candidates[0];
                                     const firstCompanyNode = companies[0];
-                                    
+
                                     if (firstCandidateNode && firstCompanyNode) {
                                         const candidateColumnCenter = firstCandidateNode.offsetLeft + firstCandidateNode.offsetWidth / 2;
                                         candidatesLabel.style.left = `${candidateColumnCenter}px`;
                                         candidatesLabel.style.transform = 'translateX(-50%)';
-                        
+
                                         const companyColumnCenter = firstCompanyNode.offsetLeft + firstCompanyNode.offsetWidth / 2;
                                         companiesLabel.style.left = `${companyColumnCenter}px`;
                                         companiesLabel.style.transform = 'translateX(-50%)';
@@ -215,16 +459,16 @@
                                 }, 0); // Use setTimeout to wait for layout pass
                             }
                         };
-            
+
                         for (let i = 0; i < NUM_NODES; i++) {
                             candidates.push(createNode('candidate', i));
                             companies.push(createNode('company', i));
                         }
-                        
+
                         // Use setTimeout to ensure nodes are rendered before calculating positions
                         setTimeout(positionNodes, 0);
                         window.addEventListener('resize', positionNodes);
-            
+
                         function drawLine(startElem, endElem, color) {
                             const line = document.createElement('div');
                             line.style.position = 'absolute';
@@ -235,56 +479,56 @@
                             line.style.transition = 'opacity 0.5s ease-in-out, width 0.5s ease-in-out';
                             line.style.zIndex = '-1';
                             vizContainer.appendChild(line);
-            
+
                             const startRect = startElem.getBoundingClientRect();
                             const endRect = endElem.getBoundingClientRect();
                             const containerRect = vizContainer.getBoundingClientRect();
-            
+
                             const startX = startRect.left + startRect.width / 2 - containerRect.left;
                             const startY = startRect.top + startRect.height / 2 - containerRect.top;
                             const endX = endRect.left + endRect.width / 2 - containerRect.left;
                             const endY = endRect.top + endRect.height / 2 - containerRect.top;
-            
+
                             const distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
                             const angle = Math.atan2(endY - startY, endX - startX) * 180 / Math.PI;
-            
+
                             line.style.left = `${startX}px`;
                             line.style.top = `${startY}px`;
                             line.style.width = `0px`;
                             line.style.transform = `rotate(${angle}deg)`;
-                            
+
                             setTimeout(() => {
                                 line.style.opacity = '0.7'; // Use 0.7 for a slightly softer look
                                 line.style.width = `${distance}px`;
                             }, 10);
-                            
+
                             return line;
                         }
-            
+
                         function runAnimation() {
                             const randomCandidate = candidates[Math.floor(Math.random() * candidates.length)];
                             const randomCompany = companies[Math.floor(Math.random() * companies.length)];
-            
+
                             // Agent starts "advocating"
                             agentText.textContent = 'Advocating...';
                             agentNode.classList.add('scale-110', 'animate-pulse');
-            
+
                             // Highlight candidate
                             randomCandidate.classList.add('scale-110', 'shadow-lg', 'shadow-indigo-500/50');
-                            
+
                             let line1, line2;
-            
+
                             // After a delay, draw first line and highlight company
                             setTimeout(() => {
                                 line1 = drawLine(randomCandidate, agentNode, '#818cf8'); // indigo-400
                                 randomCompany.classList.add('scale-110', 'shadow-lg', 'shadow-pink-500/50');
                             }, 500);
-                            
+
                             // After another delay, draw second line
                             setTimeout(() => {
-                                 line2 = drawLine(agentNode, randomCompany, '#f472b6'); // pink-400
+                                line2 = drawLine(agentNode, randomCompany, '#f472b6'); // pink-400
                             }, 1000);
-            
+
                             setTimeout(() => {
                                 // Cleanup
                                 if (line1) line1.style.opacity = '0';
@@ -299,7 +543,7 @@
                                 }, 500);
                             }, 2500);
                         }
-                        
+
                         const vizObserver = new IntersectionObserver((entries) => {
                             entries.forEach(entry => {
                                 if (entry.isIntersecting) {
@@ -313,57 +557,97 @@
                                 }
                             });
                         }, { threshold: 0.5 });
-            
+
                         vizObserver.observe(vizContainer);
                     });
                 </script>
             </section>
-            
+
 
             <section id="features" class="py-20 sm:py-32 bg-slate-900/70 relative z-10">
                 <div class="container mx-auto px-6">
                     <div class="text-center max-w-3xl mx-auto">
-                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">The Fundamentally <br><span class="text-shimmer">Different Approach</span></h2>
+                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">The Fundamentally
+                            <br><span class="text-shimmer">Different Approach</span></h2>
                         <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-16">
-                            Traditional job sites make money when companies post jobs. We make money <span class="text-white font-semibold">only when you actually get hired.</span> This core difference changes everything about your experience.
+                            Traditional job sites make money when companies post jobs. We make money <span
+                                class="text-white font-semibold">only when you actually get hired.</span> This core
+                            difference changes everything about your experience.
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 max-w-6xl mx-auto">
-                        
+
                         <div class="text-center">
-                            <div class="flex items-center justify-center h-16 w-16 bg-indigo-500/10 border-2 border-indigo-500/30 rounded-full mx-auto mb-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M10 2h4"/><path d="M12 14v-4"/><path d="M4 14a8 8 0 0 1 16 0"/><path d="M2 14h2"/><path d="M20 14h2"/></svg>
+                            <div
+                                class="flex items-center justify-center h-16 w-16 bg-indigo-500/10 border-2 border-indigo-500/30 rounded-full mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-indigo-400">
+                                    <path d="M10 2h4" />
+                                    <path d="M12 14v-4" />
+                                    <path d="M4 14a8 8 0 0 1 16 0" />
+                                    <path d="M2 14h2" />
+                                    <path d="M20 14h2" />
+                                </svg>
                             </div>
                             <h3 class="text-xl font-bold mb-4">End the Wasted Effort</h3>
                             <ul class="space-y-3 text-slate-400 text-left list-disc list-inside">
-                                <li><span class="font-semibold text-slate-300">No more black holes.</span> Agents only get paid when you do, so they are incentivized to respond.</li>
-                                <li><span class="font-semibold text-slate-300">No more ghost jobs.</span> Every role is real and actively hiring, not a resume-collection scheme from 2019.</li>
-                                <li><span class="font-semibold text-slate-300">Someone else sends the follow-ups.</span> Your agent handles the "just circling back" emails so you can focus on preparing.</li>
+                                <li><span class="font-semibold text-slate-300">No more black holes.</span> Agents only
+                                    get paid when you do, so they are incentivized to respond.</li>
+                                <li><span class="font-semibold text-slate-300">No more ghost jobs.</span> Every role is
+                                    real and actively hiring, not a resume-collection scheme from 2019.</li>
+                                <li><span class="font-semibold text-slate-300">Someone else sends the follow-ups.</span>
+                                    Your agent handles the "just circling back" emails so you can focus on preparing.
+                                </li>
                             </ul>
                         </div>
 
                         <div class="text-center">
-                             <div class="flex items-center justify-center h-16 w-16 bg-purple-500/10 border-2 border-purple-500/30 rounded-full mx-auto mb-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400"><path d="m3 11 18-5v12L3 13V2Z"/><path d="m21 7-18 5"/><path d="m3 13 18 5"/></svg>
+                            <div
+                                class="flex items-center justify-center h-16 w-16 bg-purple-500/10 border-2 border-purple-500/30 rounded-full mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-purple-400">
+                                    <path d="m3 11 18-5v12L3 13V2Z" />
+                                    <path d="m21 7-18 5" />
+                                    <path d="m3 13 18 5" />
+                                </svg>
                             </div>
                             <h3 class="text-xl font-bold mb-4">Gain Real Leverage</h3>
                             <ul class="space-y-3 text-slate-400 text-left list-disc list-inside">
-                                <li><span class="font-semibold text-slate-300">Get a dedicated advocate.</span> You get one elite agent 100% focused on you, not 10 agents fighting over you. If you're unhappy, we'll find you a new one. Instantly.</li>
-                                <li><span class="font-semibold text-slate-300">The robots work for you.</span> Instead of being filtered by bots, our agents use AI to find opportunities you didn't even know existed.</li>
-                                <li><span class="font-semibold text-slate-300">Negotiate from a position of power.</span> With multiple offers on the table, you finally get to be the one to ghost the lowballers.</li>
+                                <li><span class="font-semibold text-slate-300">Get a dedicated advocate.</span> You get
+                                    one elite agent 100% focused on you, not 10 agents fighting over you. If you're
+                                    unhappy, we'll find you a new one. Instantly.</li>
+                                <li><span class="font-semibold text-slate-300">The robots work for you.</span> Instead
+                                    of being filtered by bots, our agents use AI to find opportunities you didn't even
+                                    know existed.</li>
+                                <li><span class="font-semibold text-slate-300">Negotiate from a position of
+                                        power.</span> With multiple offers on the table, you finally get to be the one
+                                    to ghost the lowballers.</li>
                             </ul>
                         </div>
 
                         <div class="text-center">
-                            <div class="flex items-center justify-center h-16 w-16 bg-pink-500/10 border-2 border-pink-500/30 rounded-full mx-auto mb-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-pink-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12a9.96 9.96 0 0 0 6.336 9.336"/><path d="M16 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/><path d="M12 16c-2.67 0-5.18.84-7.23 2.34"/></svg>
+                            <div
+                                class="flex items-center justify-center h-16 w-16 bg-pink-500/10 border-2 border-pink-500/30 rounded-full mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-pink-400">
+                                    <path
+                                        d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12a9.96 9.96 0 0 0 6.336 9.336" />
+                                    <path d="M16 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
+                                    <path d="M12 16c-2.67 0-5.18.84-7.23 2.34" />
+                                </svg>
                             </div>
                             <h3 class="text-xl font-bold mb-4">Keep Your Dignity</h3>
                             <ul class="space-y-3 text-slate-400 text-left list-disc list-inside">
-                                <li><span class="font-semibold text-slate-300">No more performative posting.</span> You don't need to announce your job search journey to the world on LinkedIn.</li>
-                                <li><span class="font-semibold text-slate-300">Privacy is the default.</span> Your profile is private, shared only by your agent with relevant hiring managers.</li>
-                                <li><span class="font-semibold text-slate-300">Focus on what matters:</span> your skills, your interviews, and your life outside the job hunt.</li>
+                                <li><span class="font-semibold text-slate-300">No more performative posting.</span> You
+                                    don't need to announce your job search journey to the world on LinkedIn.</li>
+                                <li><span class="font-semibold text-slate-300">Privacy is the default.</span> Your
+                                    profile is private, shared only by your agent with relevant hiring managers.</li>
+                                <li><span class="font-semibold text-slate-300">Focus on what matters:</span> your
+                                    skills, your interviews, and your life outside the job hunt.</li>
                             </ul>
                         </div>
                     </div>
@@ -373,7 +657,8 @@
             <section id="how-it-works" class="py-20 sm:py-32 bg-slate-900 relative z-10">
                 <div class="container mx-auto px-6">
                     <div class="text-center max-w-3xl mx-auto">
-                        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-500">
+                        <h2
+                            class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-500">
                             Here's How This Actually Works
                         </h2>
                         <p class="text-lg md:text-xl text-slate-400 mb-16">
@@ -381,46 +666,89 @@
                         </p>
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300">
+
+                        <div
+                            class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300">
                             <div class="flex items-center gap-4 mb-4">
-                                <div class="bg-indigo-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                                <div class="bg-indigo-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="text-indigo-400">
+                                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg></div>
                                 <h3 class="text-2xl font-bold">If You Need a Job</h3>
                             </div>
-                            <p class="text-slate-400 mb-6">Stop begging the ATS gods for mercy. Upload your stuff once, and let agents fight over who gets to place you.</p>
+                            <p class="text-slate-400 mb-6">Stop begging the ATS gods for mercy. Create one private
+                                profile, and we find the perfect elite agent to champion your story.</p>
                             <ul class="space-y-3">
-                                <li class="flex items-start"><span class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span class="text-slate-300">Drop your resume (we keep it private)</span></li>
-                                <li class="flex items-start"><span class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span class="text-slate-300">Agents hunt for your perfect match</span></li>
-                                <li class="flex items-start"><span class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span class="text-slate-300">Only talk to companies that actually want you</span></li>
+                                <li class="flex items-start"><span
+                                        class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span
+                                        class="text-slate-300">Create one 100% private profile.</span></li>
+                                <li class="flex items-start"><span
+                                        class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span
+                                        class="text-slate-300">We match you with a vetted agent.</span></li>
+                                <li class="flex items-start"><span
+                                        class="bg-slate-700 text-indigo-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span
+                                        class="text-slate-300">Your agent gets you interviews.</span></li>
                             </ul>
                         </div>
 
-                        <div class="bg-purple-500/10 border border-purple-400 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300 ring-2 ring-purple-500/50 shadow-2xl shadow-purple-500/10">
+                        <div
+                            class="bg-purple-500/10 border border-purple-400 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300 ring-2 ring-purple-500/50 shadow-2xl shadow-purple-500/10">
                             <div class="flex items-center gap-4 mb-4">
-                                <div class="bg-purple-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400"><path d="M18 5a2 2 0 0 0-2-2h-3.36a2 2 0 0 0-1.87 1.26L10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.36a2 2 0 0 0-1.26-1.87L16 14l1.26-1.87A2 2 0 0 0 18 10V5Z"/><path d="M12 9v4"/></svg></div>
-                                <h3 class="text-2xl font-bold">If You're an Agent</h3>
+                                <div class="bg-purple-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="text-purple-400">
+                                        <path
+                                            d="M18 5a2 2 0 0 0-2-2h-3.36a2 2 0 0 0-1.87 1.26L10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.36a2 2 0 0 0-1.26-1.87L16 14l1.26-1.87A2 2 0 0 0 18 10V5Z" />
+                                        <path d="M12 9v4" />
+                                    </svg></div>
+                                <h3 class="text-2xl font-bold">For Elite Agents</h3>
                             </div>
-                            <p class="text-slate-400 mb-6">Stop cold DMing on LinkedIn like a weirdo. Get access to a private pool of elite talent, make matches, get paid. It's literally that simple.</p>
-                            <div class="bg-slate-700/50 rounded-lg p-4 mb-6 text-center">
-                                <div class="text-sm text-slate-300">You make</div>
-                                <div class="font-bold text-white text-3xl tracking-tight">$5k per placement</div>
-                            </div>
+                            <p class="text-slate-400 mb-6">Stop wasting 80% of your time cold sourcing. We bring you
+                                exclusive, high-intent, senior-level candidates from our private pipeline. You focus on
+                                what you do best: closing.</p>
                             <ul class="space-y-3">
-                                 <li class="flex items-start"><span class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span class="text-slate-300">Access every candidate & every job</span></li>
-                                 <li class="flex items-start"><span class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span class="text-slate-300">Focus on relationships, not cold sourcing</span></li>
-                                 <li class="flex items-start"><span class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span class="text-slate-300">Cash hits when a placement sticks</span></li>
+                                <li class="flex items-start"><span
+                                        class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span
+                                        class="text-slate-300">We send you exclusive, pre-vetted candidates.</span></li>
+                                <li class="flex items-start"><span
+                                        class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span
+                                        class="text-slate-300">You champion them to your network of clients.</span></li>
+                                <li class="flex items-start"><span
+                                        class="bg-slate-700 text-purple-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span
+                                        class="text-slate-300">You get a massive, risk-free commission.</span></li>
                             </ul>
                         </div>
 
-                        <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 transform hover:-translate-y-2 transition-transform duration-300">
                             <div class="flex items-center gap-4 mb-4">
-                                <div class="bg-pink-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-pink-400"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
+                                <div class="bg-pink-500/10 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="text-pink-400">
+                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                                    </svg></div>
                                 <h3 class="text-2xl font-bold">If You're Hiring</h3>
                             </div>
-                            <p class="text-slate-400 mb-6">Stop drowning in garbage resumes from people who spray-and-pray. Agents only send you people who actually fit.</p>
+                            <p class="text-slate-400 mb-6">Stop drowning in garbage resumes from people who
+                                spray-and-pray. Our agents only send you people who actually fit.</p>
                             <ul class="space-y-3">
-                                <li class="flex items-start"><span class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span class="text-slate-300">Post your job (we keep it private)</span></li>
-                                <li class="flex items-start"><span class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span class="text-slate-300">Agents compete to bring you the best</span></li>
-                                <li class="flex items-start"><span class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span class="text-slate-300">Pay only when you hire ($5k flat)</span></li>
+                                <li class="flex items-start"><span
+                                        class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">1</span><span
+                                        class="text-slate-300">Post your job (we keep it private)</span></li>
+                                <li class="flex items-start"><span
+                                        class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">2</span><span
+                                        class="text-slate-300">We find the best agents to bring talent.</span></li>
+
+                                <li class="flex items-start"><span
+                                        class="bg-slate-700 text-pink-400 text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-3 mt-1">3</span><span
+                                        class="text-slate-300">Pay only when you hire ($5k flat)</span></li>
                             </ul>
                         </div>
                     </div>
@@ -430,45 +758,77 @@
 
         <section id="final-cta" class="py-20 sm:py-32 bg-slate-900">
             <div class="container mx-auto px-6 relative z-10">
-                <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 sm:p-12 text-center max-w-3xl mx-auto">
-                    
-                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-2">Get Started</h2>
-                    <p class="text-lg text-slate-300 mb-8">Enter your email below. We'll send you a private link to complete your profile.</p>
+                <div
+                    class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 sm:p-12 text-center max-w-3xl mx-auto">
 
-                    <form action="https://formspree.io/f/xanpaeoo" method="POST" class="space-y-4 text-left max-w-md mx-auto">
-                        <input type="hidden" name="_autoresponse" value="The agents are waiting... Here's your private SpotOrigin link.">
+                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tighter mb-2">Get Started</h2>
+                    <p class="text-lg text-slate-300 mb-8">Enter your email below. We'll send you a private link to
+                        complete your profile.</p>
+
+                    <form id="final-cta-form" action="https://formspree.io/f/xanpaeoo" method="POST"
+                        class="space-y-4 text-left max-w-md mx-auto">
+                        <input type="hidden" name="_autoresponse"
+                            value="The agents are waiting... Here's your private SpotOrigin link.">
                         <input type="hidden" id="referrer-main" name="referrer_email">
-                         <div>
-                            <label for="email-main" class="sr-only">Email Address</label>
-                            <input type="email" name="email" id="email-main" required placeholder="Enter your email..." class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-slate-400 text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none">
+                        <div>
+                            <label for="email-final" class="sr-only">Email Address</label>
+                            <input type="email" name="email" id="email-final" required placeholder="Enter your email..."
+                                class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-slate-400 text-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none">
                         </div>
                         <div class="flex items-start pt-2">
                             <div class="flex items-center h-5">
-                                <input id="terms-main" name="terms-candidate" type="checkbox" required class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded focus:ring-indigo-500">
+                                <input id="terms-main" name="terms-candidate" type="checkbox" required
+                                    class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded focus:ring-indigo-500">
                             </div>
                             <div class="ml-3 text-sm">
-                                <label for="terms-main" class="text-slate-300">I agree to the <a href="terms.html" target="_blank" class="font-medium text-slate-100 underline hover:text-indigo-400">Terms of Service</a> and <a href="privacy.html" target="_blank" class="font-medium text-slate-100 underline hover:text-indigo-400">Privacy Policy</a>.</label>
+                                <label for="terms-main" class="text-slate-300">I agree to the <a href="terms.html"
+                                        target="_blank"
+                                        class="font-medium text-slate-100 underline hover:text-indigo-400">Terms of
+                                        Service</a> and <a href="privacy.html" target="_blank"
+                                        class="font-medium text-slate-100 underline hover:text-indigo-400">Privacy
+                                        Policy</a>.</label>
                             </div>
                         </div>
-                        <button type="submit" class="w-full bg-white text-indigo-600 font-bold py-4 px-6 rounded-full !mt-6 text-lg hover:bg-slate-100 hover:scale-105 transition-all duration-300 transform">Get My Link</button>
+                        <button type="submit"
+                            class="w-full bg-white text-emerald-700 font-bold py-4 px-6 rounded-full !mt-6 text-lg hover:bg-slate-100 hover:scale-105 transition-all duration-300 transform">Go to Private Link</button>
                     </form>
                 </div>
-                
+
                 <div class="mt-16 text-center">
                     <p class="text-lg md:text-xl text-slate-200 mb-8">Are you a recruiter or a hiring company?</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                    <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 text-center flex flex-col items-center hover:bg-slate-700/70 transition-colors duration-300 transform hover:scale-105">
-                         <div class="bg-purple-500/10 p-4 rounded-full mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400"><path d="M18 5a2 2 0 0 0-2-2h-3.36a2 2 0 0 0-1.87 1.26L10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.36a2 2 0 0 0-1.26-1.87L16 14l1.26-1.87A2 2 0 0 0 18 10V5Z"/><path d="M12 9v4"/></svg></div>
+                    <div
+                        class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 text-center flex flex-col items-center hover:bg-slate-700/70 transition-colors duration-300 transform hover:scale-105">
+                        <div class="bg-purple-500/10 p-4 rounded-full mb-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400">
+                                <path
+                                    d="M18 5a2 2 0 0 0-2-2h-3.36a2 2 0 0 0-1.87 1.26L10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.36a2 2 0 0 0-1.26-1.87L16 14l1.26-1.87A2 2 0 0 0 18 10V5Z" />
+                                <path d="M12 9v4" />
+                            </svg></div>
                         <h3 class="text-2xl font-bold mb-2">I'm an Agent</h3>
-                        <p class="text-slate-300 mb-6 flex-grow">Access our private pool of talent and get paid for making career-changing connections.</p>
-                        <a href="#how-it-works" class="w-full bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition-colors duration-300">Become an Agent</a>
+                        <p class="text-slate-300 mb-6 flex-grow">Access our private pool of talent and get paid for
+                            making career-changing connections.</p>
+                        <a href="#how-it-works"
+                            class="w-full bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition-colors duration-300">Become
+                            an Agent</a>
                     </div>
-                    <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 text-center flex flex-col items-center hover:bg-slate-700/70 transition-colors duration-300 transform hover:scale-105">
-                         <div class="bg-pink-500/10 p-4 rounded-full mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-pink-400"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
+                    <div
+                        class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 text-center flex flex-col items-center hover:bg-slate-700/70 transition-colors duration-300 transform hover:scale-105">
+                        <div class="bg-pink-500/10 p-4 rounded-full mb-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-pink-400">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg></div>
                         <h3 class="text-2xl font-bold mb-2">I'm a Company</h3>
-                        <p class="text-slate-300 mb-6 flex-grow">Stop drowning in resumes. Access a curated pipeline of vetted, overlooked candidates.</p>
-                        <a href="#how-it-works" class="w-full bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition-colors duration-300">Post an Opening</a>
+                        <p class="text-slate-300 mb-6 flex-grow">Stop drowning in resumes. Access a curated pipeline of
+                            vetted, overlooked candidates.</p>
+                        <a href="#how-it-works"
+                            class="w-full bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition-colors duration-300">Post
+                            an Opening</a>
                     </div>
                 </div>
             </div>
@@ -484,80 +844,108 @@
             <p>&copy; 2025 SpotOrigin. All rights reserved.</p>
         </div>
     </footer>
-    
+
     <div id="agent-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
         <div class="fixed inset-0 bg-black/60 backdrop-blur-sm modal-backdrop opacity-0"></div>
-        <div class="relative bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md p-8 border border-slate-700 modal-content scale-95">
-            <button class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors text-3xl leading-none" data-modal-close>&times;</button>
+        <div
+            class="relative bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md p-8 border border-slate-700 modal-content scale-95">
+            <button
+                class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors text-3xl leading-none"
+                data-modal-close>&times;</button>
             <h3 class="text-2xl font-bold mb-2">Become a SpotOrigin Agent</h3>
-            <p class="text-slate-400 mb-6">Join our network of agents and start earning by connecting top talent with great companies.</p>
+            <p class="text-slate-400 mb-6">Join our network of agents and start earning by connecting top talent with
+                great companies.</p>
             <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 mb-6 text-sm">
                 <ul class="space-y-4 text-slate-300">
                     <li class="flex items-start gap-3">
-                        <span class="flex-shrink-0 bg-indigo-500/10 text-indigo-400 rounded-full h-6 w-6 flex items-center justify-center mt-0.5">1</span>
+                        <span
+                            class="flex-shrink-0 bg-indigo-500/10 text-indigo-400 rounded-full h-6 w-6 flex items-center justify-center mt-0.5">1</span>
                         <span>Sign up below to get your unique referral link.</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="flex-shrink-0 bg-indigo-500/10 text-indigo-400 rounded-full h-6 w-6 flex items-center justify-center mt-0.5">2</span>
+                        <span
+                            class="flex-shrink-0 bg-indigo-500/10 text-indigo-400 rounded-full h-6 w-6 flex items-center justify-center mt-0.5">2</span>
                         <span>Share your link with talented candidates in your network.</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="flex-shrink-0 bg-indigo-500/10 text-indigo-400 rounded-full h-6 w-6 flex items-center justify-center mt-0.5">3</span>
-                        <span>Earn a <strong class="text-white">15% cut of the $5,000 placement fee</strong> whenever your referred candidate gets hired.</span>
+                        <span
+                            class="flex-shrink-0 bg-indigo-500/10 text-indigo-400 rounded-full h-6 w-6 flex items-center justify-center mt-0.5">3</span>
+                        <span>Earn a <strong class="text-white">15% cut of the $5,000 placement fee</strong> whenever
+                            your referred candidate gets hired.</span>
                     </li>
                 </ul>
             </div>
             <form action="https://formspree.io/f/xyznlzkk" method="POST" class="space-y-4">
-               <div>
-                   <label for="agent-name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
-                   <input type="text" name="name" id="agent-name" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
-               </div>
-               <div>
-                   <label for="agent-email" class="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
-                   <input type="email" name="email" id="agent-email" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
-               </div>
-               <div class="flex items-start">
-                   <div class="flex items-center h-5">
-                       <input id="terms-agent" name="terms-agent" type="checkbox" required class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded">
-                   </div>
-                   <div class="ml-3 text-sm">
-                       <label for="terms-agent" class="text-slate-400">I agree to the <a href="terms.html" target="_blank" class="font-medium text-indigo-400 hover:text-indigo-300">Terms of Service</a> and <a href="privacy.html" target="_blank" class="font-medium text-indigo-400 hover:text-indigo-300">Privacy Policy</a>.</label>
-                   </div>
-               </div>
-               <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-full hover:bg-indigo-700 hover:scale-105 transition-all duration-300 !mt-6">Get My Referral Link</button>
-           </form>
+                <div>
+                    <label for="agent-name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
+                    <input type="text" name="name" id="agent-name" required
+                        class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
+                </div>
+                <div>
+                    <label for="agent-email" class="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
+                    <input type="email" name="email" id="agent-email" required
+                        class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
+                </div>
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="terms-agent" name="terms-agent" type="checkbox" required
+                            class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="terms-agent" class="text-slate-400">I agree to the <a href="terms.html"
+                                target="_blank" class="font-medium text-indigo-400 hover:text-indigo-300">Terms of
+                                Service</a> and <a href="privacy.html" target="_blank"
+                                class="font-medium text-indigo-400 hover:text-indigo-300">Privacy Policy</a>.</label>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-full hover:bg-indigo-700 hover:scale-105 transition-all duration-300 !mt-6">Get
+                    My Referral Link</button>
+            </form>
         </div>
     </div>
 
     <div id="company-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
         <div class="fixed inset-0 bg-black/60 backdrop-blur-sm modal-backdrop opacity-0"></div>
-        <div class="relative bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md p-8 border border-slate-700 modal-content scale-95">
-            <button class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors text-3xl leading-none" data-modal-close>&times;</button>
+        <div
+            class="relative bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md p-8 border border-slate-700 modal-content scale-95">
+            <button
+                class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors text-3xl leading-none"
+                data-modal-close>&times;</button>
             <h3 class="text-2xl font-bold mb-2">Join as a Company</h3>
             <p class="text-slate-400 mb-6">Request early access to post jobs and find top-tier talent.</p>
             <form action="https://formspree.io/f/xzzjyzde" method="POST" class="space-y-4">
-               <div>
-                   <label for="company-name" class="block text-sm font-medium text-slate-300 mb-1">Company Name</label>
-                   <input type="text" name="company-name" id="company-name" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
-               </div>
-               <div>
-                   <label for="contact-name" class="block text-sm font-medium text-slate-300 mb-1">Your Name</label>
-                   <input type="text" name="contact-name" id="contact-name" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
-               </div>
-               <div>
-                   <label for="contact-email" class="block text-sm font-medium text-slate-300 mb-1">Your Email</label>
-                   <input type="email" name="email" id="contact-email" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
-               </div>
+                <div>
+                    <label for="company-name" class="block text-sm font-medium text-slate-300 mb-1">Company Name</label>
+                    <input type="text" name="company-name" id="company-name" required
+                        class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
+                </div>
+                <div>
+                    <label for="contact-name" class="block text-sm font-medium text-slate-300 mb-1">Your Name</label>
+                    <input type="text" name="contact-name" id="contact-name" required
+                        class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
+                </div>
+                <div>
+                    <label for="contact-email" class="block text-sm font-medium text-slate-300 mb-1">Your Email</label>
+                    <input type="email" name="email" id="contact-email" required
+                        class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-400">
+                </div>
                 <div class="flex items-start">
-                   <div class="flex items-center h-5">
-                       <input id="terms-company" name="terms-company" type="checkbox" required class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded">
-                   </div>
-                   <div class="ml-3 text-sm">
-                       <label for="terms-company" class="text-slate-400">I agree to the <a href="terms.html" target="_blank" class="font-medium text-indigo-400 hover:text-indigo-300">Terms of Service</a> and <a href="privacy.html" target="_blank" class="font-medium text-indigo-400 hover:text-indigo-300">Privacy Policy</a>.</label>
-                   </div>
-               </div>
-               <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-full hover:bg-indigo-700 hover:scale-105 transition-all duration-300">Submit Request</button>
-           </form>
+                    <div class="flex items-center h-5">
+                        <input id="terms-company" name="terms-company" type="checkbox" required
+                            class="h-4 w-4 text-indigo-600 border-slate-600 bg-slate-700 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="terms-company" class="text-slate-400">I agree to the <a href="terms.html"
+                                target="_blank" class="font-medium text-indigo-400 hover:text-indigo-300">Terms of
+                                Service</a> and <a href="privacy.html" target="_blank"
+                                class="font-medium text-indigo-400 hover:text-indigo-300">Privacy Policy</a>.</label>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-full hover:bg-indigo-700 hover:scale-105 transition-all duration-300">Submit
+                    Request</button>
+            </form>
         </div>
     </div>
 
@@ -592,18 +980,18 @@
             revealElements.forEach(element => {
                 revealObserver.observe(element);
             });
-            
+
             const openModalButtons = document.querySelectorAll('[data-modal-target]');
             openModalButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const modalId = button.getAttribute('data-modal-target');
                     const modal = document.getElementById(modalId);
-                    if(modal) {
+                    if (modal) {
                         modal.classList.remove('hidden');
                         modal.classList.add('flex');
                         setTimeout(() => {
-                           modal.querySelector('.modal-backdrop').classList.add('opacity-100');
-                           modal.querySelector('.modal-content').classList.remove('scale-95');
+                            modal.querySelector('.modal-backdrop').classList.add('opacity-100');
+                            modal.querySelector('.modal-content').classList.remove('scale-95');
                         }, 10);
                     }
                 });
@@ -632,28 +1020,28 @@
             });
         });
     </script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- SCROLL ANALYTICS (V4 - IntersectionObserver) ---
             const formUrl = 'https://formspree.io/f/xnnglook';
-            
+
             // Use a Set to keep track of sections we've already sent an event for.
             const sectionsAlreadySeen = new Set();
-    
+
             const sendAnalyticsEvent = (sectionId) => {
                 console.log(`User reached section: ${sectionId}`); // For testing
                 const formData = new FormData();
                 formData.append('section_reached', sectionId);
                 formData.append('page_url', window.location.href);
-    
+
                 // navigator.sendBeacon is perfect for this kind of non-critical,
                 // fire-and-forget analytics request.
                 if (navigator.sendBeacon) {
                     navigator.sendBeacon(formUrl, formData);
                 }
             };
-    
+
             // This is the observer's callback function.
             // It runs whenever a watched element's visibility changes.
             const observerCallback = (entries, observer) => {
@@ -661,23 +1049,23 @@
                     // isIntersecting is true when the element is in the viewport.
                     if (entry.isIntersecting) {
                         const sectionId = entry.target.id;
-    
+
                         // Check if we haven't already sent an event for this section.
                         if (!sectionsAlreadySeen.has(sectionId)) {
-                            
+
                             // Add the section to our set so we don't send it again.
                             sectionsAlreadySeen.add(sectionId);
-                            
+
                             // Send the form event.
                             sendAnalyticsEvent(sectionId);
-    
+
                             // Optional: Stop observing the element after it has been seen once.
                             observer.unobserve(entry.target);
                         }
                     }
                 });
             };
-    
+
             // Options for the observer:
             // threshold: 0.5 means we consider a section "visible" when 50%
             // of it is in the viewport.
@@ -685,10 +1073,10 @@
                 root: null, // observes intersections relative to the viewport
                 threshold: 0.5,
             };
-    
+
             // Create the observer.
             const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
+
             // Tell the observer to watch all <section> elements that have an ID.
             const sectionsToTrack = document.querySelectorAll('section[id]');
             sectionsToTrack.forEach(section => {
@@ -696,5 +1084,120 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ... (all your other existing code like 'SCROLL ANALYTICS', 'REFERRAL CODE', etc.) ...
+
+
+            // --- CORRECTED HERO FORM SUBMISSION SCRIPT ---
+
+            const heroForm = document.getElementById('hero-form');
+            const emailHeroInput = document.getElementById('email-hero');
+
+            if (heroForm && emailHeroInput) {
+
+                // 1. Add 'async' to the function to allow for 'await'
+                heroForm.addEventListener('submit', async function (event) {
+
+                    // 2. Stop the default browser submission
+                    event.preventDefault();
+
+                    // 3. Get the button and provide instant feedback
+                    const submitButton = heroForm.querySelector('button[type="submit"]');
+                    const buttonSpan = submitButton.querySelector('span');
+                    const originalButtonText = buttonSpan.textContent;
+
+                    submitButton.disabled = true;
+                    buttonSpan.textContent = 'Saving...';
+
+                    const email = emailHeroInput.value;
+                    const formData = new FormData(heroForm);
+
+                    try {
+                        // 4. WAIT for the fetch to Formspree to complete
+                        await fetch(heroForm.action, {
+                            method: heroForm.method,
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        // 5. SUCCESS! NOW we can safely redirect.
+                        const redirectUrl = `https://spotorigin.com/resume?email=${encodeURIComponent(email)}`;
+                        window.location.href = redirectUrl;
+
+                    } catch (error) {
+                        // 6. Handle errors if Formspree fails
+                        console.error('Formspree submission error:', error);
+                        alert('Submission failed. Please check your connection and try again.');
+
+                        // Re-enable the button
+                        submitButton.disabled = false;
+                        buttonSpan.textContent = originalButtonText;
+                    }
+                });
+            }
+
+            // --- END OF CORRECTED SCRIPT ---
+
+        }); 
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ... (your existing code for REFERRAL, SCROLL ANALYTICS, HERO FORM) ...
+
+            // --- FINAL CTA FORM SUBMISSION SCRIPT (NEW) ---
+
+            const finalCtaForm = document.getElementById('final-cta-form');
+            const emailFinalInput = document.getElementById('email-final'); // Use the new ID
+
+            if (finalCtaForm && emailFinalInput) {
+
+                finalCtaForm.addEventListener('submit', async function (event) {
+                    event.preventDefault();
+
+                    const submitButton = finalCtaForm.querySelector('button[type="submit"]');
+                    const originalButtonText = submitButton.textContent; // Direct text content here
+
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Saving...'; // Direct text change
+
+                    const email = emailFinalInput.value;
+                    const formData = new FormData(finalCtaForm);
+
+                    try {
+                        await fetch(finalCtaForm.action, {
+                            method: finalCtaForm.method,
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        // Success! Redirect.
+                        const redirectUrl = `https://spotorigin.com/resume?email=${encodeURIComponent(email)}`;
+                        window.location.href = redirectUrl;
+
+                    } catch (error) {
+                        console.error('Final CTA Formspree submission error:', error);
+                        alert('Submission failed. Please check your connection and try again.');
+
+                        // Re-enable the button
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalButtonText; // Restore original text
+                    }
+                });
+            }
+
+            // --- END OF NEW SCRIPT BLOCK ---
+
+        }); 
+    </script>
 </body>
+
 </html>

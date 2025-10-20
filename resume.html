@@ -109,20 +109,47 @@
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        // --- SCRIPT CANARY ---
+        // This MUST show up in your console. If not, the file isn't updating.
+        console.log("SpotOrigin Debug: resume.html SCRIPT BLOCK IS RUNNING.");
+
+        // We wrap all our logic in a function
+        const runLogic = () => {
             // --- GLOBAL VARIABLES ---
             const form = document.getElementById('profile-form');
             const submitButton = document.getElementById('submit-button');
             const messagesDiv = document.getElementById('form-messages');
             let uploadedFile = null;
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // --- DEBUGGING: Check URL ---
+            console.log("SpotOrigin Debug: runLogic() fired. URL params are:", window.location.search);
 
             // --- REFERRAL CODE LOGIC ---
-            const urlParams = new URLSearchParams(window.location.search);
             const referrer = urlParams.get('ref');
             if (referrer) {
                 const referrerDesktopInput = document.getElementById('referrer-desktop');
                 if (referrerDesktopInput) referrerDesktopInput.value = referrer;
             }
+
+            // --- EMAIL PREFILL LOGIC (WITH DEBUGGING) ---
+            const email = urlParams.get('email');
+            const emailDesktopInput = document.getElementById('email-desktop');
+
+            console.log("SpotOrigin Debug: Found email in URL:", email); 
+
+            if (email && emailDesktopInput) {
+                console.log("SpotOrigin Debug: Found email AND input field. Setting value.");
+                emailDesktopInput.value = email;
+            } else {
+                if (!email) {
+                    console.log("SpotOrigin Debug: 'email' param not found in URL.");
+                }
+                if (!emailDesktopInput) {
+                    console.log("SpotOrigin Debug: 'email-desktop' input field not found in DOM.");
+                }
+            }
+            // --- END EMAIL LOGIC ---
 
             // --- LOCATION TAGS LOGIC ---
             const locationInput = document.getElementById('location-input');
@@ -130,7 +157,6 @@
             const hiddenLocationsInput = document.getElementById('desired-locations-hidden');
             let locations = [];
 
-            // **THE FIX: Moved these function definitions to the top of the section**
             const renderLocations = () => {
                 if (!locationsContainer) return;
                 locationsContainer.innerHTML = '';
@@ -165,7 +191,6 @@
                 locationInput.value = '';
             };
             
-            // This code now works because the functions above are defined.
             if (hiddenLocationsInput) {
                 locations = ['Remote'];
                 hiddenLocationsInput.value = locations.join(', ');
@@ -188,7 +213,6 @@
             const fileConstraints = document.getElementById('file-constraints');
             
             if (dropzone && fileInput && fileInfo) {
-                // This logic remains the same and is correct.
                 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
                     dropzone.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
                 });
@@ -278,7 +302,18 @@
                     }
                 });
             }
-        });
+        };
+
+        // --- BULLETPROOF DOM READY CHECK ---
+        if (document.readyState === 'loading') {
+            // Loading hasn't finished yet
+            console.log("SpotOrigin Debug: DOM is loading, adding listener.");
+            document.addEventListener('DOMContentLoaded', runLogic);
+        } else {
+            // `DOMContentLoaded` has already fired
+            console.log("SpotOrigin Debug: DOM is already ready, running logic now.");
+            runLogic();
+        }
     </script>
 
 </body>
